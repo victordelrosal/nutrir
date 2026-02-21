@@ -357,15 +357,8 @@
       display: inline-flex; align-items: center; gap: 6px;
       background: rgba(255,149,0,0.1); color: var(--ios-orange);
       padding: 4px 10px; border-radius: 8px;
-      font-size: 13px; font-weight: 600; margin-bottom: 8px;
+      font-size: 13px; font-weight: 600; margin-bottom: 6px;
     }
-    .protein-card-content h4 {
-      font-size: 13px; font-weight: 700; color: var(--ios-text);
-      text-transform: uppercase; letter-spacing: 0.03em;
-      margin: 10px 0 4px; padding-top: 8px;
-      border-top: 0.5px solid var(--ios-separator);
-    }
-    .protein-card-content h4:first-of-type { border-top: none; margin-top: 4px; padding-top: 0; }
     .protein-summary-table {
       margin: 0; padding: 12px 16px;
       border-top: 0.5px solid var(--ios-separator);
@@ -961,7 +954,7 @@
 
         <!-- Intro -->
         <div class="ios-protein-intro">
-          La proteína no es solo para deportistas. Suministra los aminoácidos que construyen y reparan tejidos, producen enzimas, hormonas y anticuerpos. <strong>Las necesidades cambian con la edad</strong>: crecimiento en la infancia, mantenimiento en la adultez y resistencia al deterioro en la vejez. Los lineamientos oficiales (OMS, IOM, EFSA) fijan un mínimo de <strong>0.8 a 0.95 g/kg/día</strong>, pero estudios más recientes con la metodología IAAO sugieren que las necesidades reales podrían ser entre un 40 % y un 60 % mayores.
+          La proteína construye y repara tejidos, produce enzimas, hormonas y anticuerpos. <strong>Las necesidades cambian con la edad.</strong> Los lineamientos oficiales fijan 0.8 a 0.95 g/kg/día, pero estudios recientes (IAAO) sugieren que las necesidades reales podrían ser <strong>40 a 60 % mayores</strong>.
         </div>
 
         <!-- Age group cards inside -->
@@ -972,36 +965,21 @@
             <div class="ios-card-head">
               <div class="ios-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="3"/><path d="M12 8v8"/><path d="M8 21l4-5 4 5"/></svg></div>
               <div class="ios-card-info">
-                <div class="ios-card-label">Niños pequeños (4 a 8 años)</div>
-                <div class="ios-card-stat">0.86 a 0.95 g/kg/día · Cimiento del desarrollo</div>
+                <div class="ios-card-label">Niños pequeños (4 a 8)</div>
+                <div class="ios-card-stat">~0.95 g/kg/día · Cimiento del desarrollo</div>
               </div>
               <div class="ios-chevron"></div>
             </div>
             <div class="ios-card-body"><div class="ios-card-body-inner"><div class="ios-card-content protein-card-content">
-              <div class="rec">🎯 IOM: 0.95 g/kg/día (~19 g) · OMS: 0.87 a 0.92 · EFSA: 0.86 a 0.92</div>
-              <h4>Beneficios clave</h4>
+              <div class="rec">🎯 ~19 g/día · IOM: 0.95 · OMS: 0.87–0.92 · EFSA: 0.86–0.92</div>
               <ul>
-                <li>Aproximadamente el <strong>58 % de la proteína dietética</strong> se destina a construir tejido nuevo. Los aminoácidos impulsan el crecimiento lineal (estatura), el desarrollo muscular y la maduración cerebral (mielinización y crecimiento dendrítico).</li>
-                <li>La proteína modula la <strong>IGF-1</strong>, hormona clave para el desarrollo óseo y muscular. Cerca del <strong>90 % de la masa ósea máxima</strong> se acumula antes de los 18 años; esta etapa es parte fundamental de esa ventana.</li>
-                <li>Aminoácidos como el triptófano, la tirosina y la lisina son precursores de <strong>neurotransmisores esenciales</strong> para la atención, la memoria de trabajo y el aprendizaje.</li>
-                <li>El sistema inmunológico depende de aminoácidos para producir anticuerpos, glutatión y citocinas.</li>
-              </ul>
-              <h4>Riesgos por deficiencia</h4>
-              <ul>
-                <li>La desnutrición proteico-energética crónica causa <strong>reducción del crecimiento dendrítico y retraso en la mielinización</strong> cerebral.</li>
-                <li>Kar et al. (2008) encontraron que los niños desnutridos de 5 a 10 años tuvieron peores resultados en atención, memoria y habilidad visuoespacial, y <strong>no mostraron las mejoras cognitivas esperadas con la edad</strong>.</li>
-                <li>Compromiso inmunológico, infecciones recurrentes y, en casos extremos, kwashiorkor o marasmo.</li>
-              </ul>
-              <h4>Mejores fuentes</h4>
-              <ul>
-                <li><strong>Animales:</strong> huevo (6 g por unidad, excelente biodisponibilidad), leche, yogurt griego, pollo en trozos pequeños, pescado sin espinas.</li>
-                <li><strong>Vegetales:</strong> lentejas, tofu, crema de cacahuate (untada, no en grumos por riesgo de asfixia), quinoa (una de las pocas proteínas vegetales completas).</li>
-                <li>Las nueces enteras son <strong>riesgo de asfixia hasta los 4 o 5 años</strong>: ofrecer molidas o en forma de crema.</li>
-              </ul>
-              <h4>Precauciones</h4>
-              <ul>
-                <li>No existe un límite superior (UL) establecido para la proteína en niños sanos. El rango aceptable (AMDR) es del <strong>10 al 30 % de la energía total</strong>.</li>
-                <li>La AAP desaconseja los suplementos de proteína en niños. No hay evidencia de daño renal por proteína dietética en niños sanos.</li>
+                <li>🧒 El <strong>58 % de la proteína</strong> se destina a construir tejido nuevo: estatura, músculo, mielinización cerebral</li>
+                <li>🦴 Modula la IGF-1 (hormona de crecimiento óseo). El <strong>90 % de la masa ósea máxima</strong> se acumula antes de los 18</li>
+                <li>🧠 Triptófano, tirosina y lisina = precursores de neurotransmisores para <strong>atención, memoria y aprendizaje</strong></li>
+                <li>🛡️ Los aminoácidos producen anticuerpos, glutatión y citocinas</li>
+                <li>⚠️ Sin proteína suficiente: retraso en la mielinización, peores resultados cognitivos (Kar et al., 2008), infecciones recurrentes</li>
+                <li>🥚 <strong>Fuentes:</strong> huevo (6 g), leche, yogurt griego, pollo, pescado sin espinas · Lentejas, tofu, crema de cacahuate, quinoa</li>
+                <li>🚫 Nueces enteras = riesgo de asfixia hasta los 5 años. La AAP desaconseja suplementos en niños</li>
               </ul>
             </div></div></div>
           </div>
@@ -1011,34 +989,21 @@
             <div class="ios-card-head">
               <div class="ios-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
               <div class="ios-card-info">
-                <div class="ios-card-label">Preadolescentes (9 a 12 años)</div>
-                <div class="ios-card-stat">0.89 a 0.95 g/kg/día · Preparación para el estirón</div>
+                <div class="ios-card-label">Preadolescentes (9 a 12)</div>
+                <div class="ios-card-stat">~0.95 g/kg/día · Preparación para el estirón</div>
               </div>
               <div class="ios-chevron"></div>
             </div>
             <div class="ios-card-body"><div class="ios-card-body-inner"><div class="ios-card-content protein-card-content">
-              <div class="rec">🎯 IOM: 0.95 g/kg/día (~34 g) · OMS: 0.89 a 0.92 · EFSA: 0.89 a 0.92</div>
-              <h4>Beneficios clave</h4>
+              <div class="rec">🎯 ~34 g/día · IOM: 0.95 · OMS: 0.89–0.92 · EFSA: 0.89–0.92</div>
               <ul>
-                <li>La preadolescencia es la <strong>rampa de acceso a la pubertad</strong>, el segundo período de crecimiento más rápido después de la infancia. Los adolescentes ganarán entre el 15 y el 20 % de su estatura adulta y hasta el 50 % de su peso corporal.</li>
-                <li>La deposición de minerales óseos se acelera. La proteína trabaja en sinergia con el calcio para apoyar este proceso.</li>
-                <li>El eje hipotálamo-hipófisis-gónadas comienza a activarse; la proteína apoya la producción de gonadotropinas y esteroides sexuales que impulsarán el desarrollo puberal.</li>
-                <li>Las demandas cognitivas aumentan con la carga académica: los aminoácidos alimentan las vías de neurotransmisores clave para la función ejecutiva.</li>
-              </ul>
-              <h4>Riesgos por deficiencia</h4>
-              <ul>
-                <li>La proteína inadecuada puede <strong>retrasar el inicio de la pubertad</strong>. Estudios en Kenia encontraron menarquia tardía en adolescentes con desnutrición crónica.</li>
-                <li>Una ingesta subóptima durante estos años puede <strong>reducir permanentemente la masa ósea máxima</strong>, aumentando el riesgo de fracturas y osteoporosis de por vida.</li>
-                <li>Crookston et al. (2010) mostraron que la función cognitiva de niños recuperados de desnutrición no difería significativamente de quienes permanecieron desnutridos, sugiriendo un <strong>potencial limitado de recuperación neurocognitiva</strong>.</li>
-              </ul>
-              <h4>Mejores fuentes</h4>
-              <ul>
-                <li>Todas las texturas son manejables a los 9 años. Preferir pescados bajos en mercurio (salmón, tilapia, bacalao) sobre pez espada o macarela.</li>
-                <li>Para preadolescentes vegetarianos, asegurar variedad de proteínas vegetales complementarias y monitorear B12, hierro y zinc.</li>
-              </ul>
-              <h4>Precauciones</h4>
-              <ul>
-                <li>Sin UL formal. La precaución principal es el <strong>equilibrio dietético</strong>: la proteína no debe desplazar los alimentos ricos en fibra, calcio ni las calorías totales necesarias.</li>
+                <li>📈 Rampa a la pubertad: ganarán <strong>15–20 % de estatura adulta</strong> y hasta el 50 % del peso corporal</li>
+                <li>🦴 La mineralización ósea se acelera; la proteína trabaja en sinergia con el calcio</li>
+                <li>⚡ El eje hormonal puberal comienza a activarse; la proteína apoya la producción de gonadotropinas</li>
+                <li>🧠 Mayor carga académica = mayor demanda de aminoácidos para la función ejecutiva</li>
+                <li>⚠️ La deficiencia puede <strong>retrasar la pubertad</strong> y reducir permanentemente la masa ósea máxima</li>
+                <li>⚠️ Crookston et al. (2010): la recuperación neurocognitiva tras desnutrición es <strong>limitada</strong></li>
+                <li>🐟 Pescados bajos en mercurio (salmón, tilapia, bacalao). Vegetarianos: monitorear B12, hierro, zinc</li>
               </ul>
             </div></div></div>
           </div>
@@ -1048,34 +1013,20 @@
             <div class="ios-card-head">
               <div class="ios-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
               <div class="ios-card-info">
-                <div class="ios-card-label">Adolescentes (13 a 17 años)</div>
-                <div class="ios-card-stat">0.83 a 0.90 g/kg/día · Pico de crecimiento y demanda</div>
+                <div class="ios-card-label">Adolescentes (13 a 17)</div>
+                <div class="ios-card-stat">~0.85 g/kg/día · Pico de crecimiento</div>
               </div>
               <div class="ios-chevron"></div>
             </div>
             <div class="ios-card-body"><div class="ios-card-body-inner"><div class="ios-card-content protein-card-content">
-              <div class="rec">🎯 IOM: 0.85 g/kg/día (52 g ♂ / 46 g ♀) · Atletas: 1.2 a 1.8 g/kg/día</div>
-              <h4>Beneficios clave</h4>
+              <div class="rec">🎯 52 g ♂ / 46 g ♀ · IOM: 0.85 · Atletas: 1.2–1.8 g/kg/día</div>
               <ul>
-                <li>Más de la <strong>mitad de la masa ósea máxima</strong> se acumula durante la adolescencia. La proteína adecuada mantiene los niveles de IGF-1 que impulsan la formación ósea y la absorción de calcio.</li>
-                <li>La masa magra aumenta rápidamente (en varones hasta los 18, en mujeres hasta los 15). La proteína suministra aminoácidos esenciales, particularmente <strong>leucina</strong>, que estimulan la síntesis de proteína muscular.</li>
-                <li>Los precursores de serotonina, dopamina y norepinefrina influyen directamente en el <strong>estado de ánimo, la concentración y la resiliencia al estrés</strong>.</li>
-              </ul>
-              <h4>Riesgos por deficiencia</h4>
-              <ul>
-                <li>Retraso en el crecimiento, maduración tardía, reducción de la masa ósea máxima (con consecuencias de por vida).</li>
-                <li>La deficiencia proteica durante la adolescencia puede causar <strong>amenorrea en mujeres</strong> y alteraciones en el desarrollo gonadal.</li>
-                <li>En contextos deportivos, la deficiencia relativa de energía (RED-S) puede reducir indirectamente la ingesta de proteína.</li>
-              </ul>
-              <h4>Mejores fuentes</h4>
-              <ul>
-                <li>Las adolescentes de 14 a 16 años muestran una <strong>disminución marcada en el consumo de proteína animal</strong>: requieren atención especial a la calidad proteica.</li>
-                <li>El auge de las dietas vegetarianas entre jóvenes es manejable con planeación: la soya y la quinoa proveen aminoácidos completos. Monitorear B12, hierro y zinc.</li>
-              </ul>
-              <h4>Precauciones</h4>
-              <ul>
-                <li>La FDA no regula los polvos de proteína, que pueden contener aditivos o dosis excesivas. Muchos productos contienen 40 a 60 g por porción (más de lo necesario).</li>
-                <li>La AAP es clara: <strong>los suplementos de proteína son innecesarios</strong> para los adolescentes deportistas cuando la dieta es adecuada. No existen estudios de seguridad a largo plazo sobre la creatina en adolescentes.</li>
+                <li>🦴 Más de la <strong>mitad de la masa ósea máxima</strong> se acumula en la adolescencia</li>
+                <li>💪 La masa magra crece rápido (varones hasta los 18, mujeres hasta los 15). La <strong>leucina</strong> es clave</li>
+                <li>🧠 Precursores de serotonina y dopamina: <strong>ánimo, concentración y resiliencia</strong></li>
+                <li>⚠️ La deficiencia puede causar amenorrea, retraso en la maduración y menor masa ósea de por vida</li>
+                <li>🍽️ Las adolescentes de 14–16 reducen su consumo de proteína animal: atención a la calidad</li>
+                <li>🚫 La AAP: <strong>los suplementos son innecesarios</strong> con dieta adecuada. La FDA no regula los polvos (40–60 g/porción = excesivo). Sin estudios de creatina en adolescentes</li>
               </ul>
             </div></div></div>
           </div>
@@ -1085,34 +1036,21 @@
             <div class="ios-card-head">
               <div class="ios-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
               <div class="ios-card-info">
-                <div class="ios-card-label">Adultos jóvenes (18 a 30 años)</div>
-                <div class="ios-card-stat">0.80 a 0.83 g/kg/día · Pico biológico</div>
+                <div class="ios-card-label">Adultos jóvenes (18 a 30)</div>
+                <div class="ios-card-stat">~0.80 g/kg/día · Pico biológico</div>
               </div>
               <div class="ios-chevron"></div>
             </div>
             <div class="ios-card-body"><div class="ios-card-body-inner"><div class="ios-card-content protein-card-content">
-              <div class="rec">🎯 IOM: 0.80 g/kg/día · Activos: 1.4 a 2.0 · Óptimo para músculo: ~1.6 g/kg/día</div>
-              <h4>Beneficios clave</h4>
+              <div class="rec">🎯 IOM: 0.80 · Activos: 1.4–2.0 · Óptimo músculo: ~1.6 g/kg/día</div>
               <ul>
-                <li>Ventana clave para <strong>maximizar la masa magra y consolidar la masa ósea</strong> (las últimas ganancias óseas ocurren hasta finales de los 20). El músculo construido ahora es un reservorio contra la sarcopenia futura.</li>
-                <li>La proteína tiene el <strong>mayor efecto térmico</strong> de todos los macronutrientes: entre el 20 y el 30 % de las calorías de la proteína se gastan en su propia digestión (vs. 5 a 10 % de los carbohidratos).</li>
-                <li>Las dietas altas en proteína aumentan la saciedad mediante GLP-1 y PYY, y reducen la grelina. Durante la restricción calórica, la proteína adecuada <strong>preserva la masa magra y promueve la pérdida preferencial de grasa</strong>.</li>
-                <li>Un metaanálisis en el <em>British Journal of Sports Medicine</em> encontró que <strong>1.6 g/kg/día</strong> es el punto a partir del cual la proteína adicional ya no produce ganancias musculares extra con entrenamiento de resistencia.</li>
-              </ul>
-              <h4>Riesgos por deficiencia</h4>
-              <ul>
-                <li>Poco común en contextos con acceso a alimentos, pero puede ocurrir con restricción calórica severa, malabsorción o enfermedad crónica.</li>
-                <li>En mujeres jóvenes con RED-S: <strong>amenorrea y pérdida de densidad ósea del 3 al 5 % anual</strong>.</li>
-              </ul>
-              <h4>Mejores fuentes y calidad</h4>
-              <ul>
-                <li>El sistema <strong>DIAAS</strong> (FAO) califica: huevo entero 113 a 116 (excelente), caseína 117 a 120, res 91 a 113, aislado de soya 84 a 91, proteína de chícharo 62 a 82.</li>
-                <li>Combinando arroz y chícharo se logran puntajes comparables a las fuentes animales.</li>
-              </ul>
-              <h4>Seguridad</h4>
-              <ul>
-                <li>Un metaanálisis de 28 ensayos (n=1,358) <strong>no encontró efectos adversos</strong> de las dietas altas en proteína (≥1.5 g/kg/día) sobre la función renal en adultos sanos.</li>
-                <li>Estudios de Antonio et al. con individuos entrenados consumiendo 2.5 a 3.3 g/kg/día no mostraron daño en lípidos, riñón ni hígado. Quienes tienen enfermedad renal preexistente deben limitar la ingesta.</li>
+                <li>💪 Ventana para <strong>maximizar la masa magra</strong>. El músculo de hoy es reservorio contra la sarcopenia futura</li>
+                <li>🦴 Últimas ganancias de masa ósea hasta finales de los 20</li>
+                <li>🔥 <strong>Efecto térmico:</strong> 20–30 % de las calorías de la proteína se gastan en su digestión (vs. 5–10 % de carbohidratos)</li>
+                <li>⚖️ Aumenta la saciedad (GLP-1, PYY). En restricción calórica: <strong>preserva músculo y promueve pérdida de grasa</strong></li>
+                <li>📊 Metaanálisis (<em>BJSM</em>): <strong>1.6 g/kg/día</strong> = tope de ganancias musculares con entrenamiento de resistencia</li>
+                <li>🥚 Calidad DIAAS: huevo 113–116, caseína 117–120, res 91–113, soya 84–91, chícharo 62–82. Arroz + chícharo = comparable a animal</li>
+                <li>✅ 28 ensayos (n=1,358): <strong>sin daño renal</strong> con ≥1.5 g/kg/día en adultos sanos</li>
               </ul>
             </div></div></div>
           </div>
@@ -1122,29 +1060,20 @@
             <div class="ios-card-head">
               <div class="ios-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
               <div class="ios-card-info">
-                <div class="ios-card-label">Adultos (31 a 55 años)</div>
-                <div class="ios-card-stat">0.80 a 0.83 g/kg/día · Defender contra el declive</div>
+                <div class="ios-card-label">Adultos (31 a 55)</div>
+                <div class="ios-card-stat">~0.80 g/kg/día · Defender contra el declive</div>
               </div>
               <div class="ios-chevron"></div>
             </div>
             <div class="ios-card-body"><div class="ios-card-body-inner"><div class="ios-card-content protein-card-content">
-              <div class="rec">🎯 Oficial: 0.80 a 0.83 g/kg/día · Recomendado: 1.0 a 1.2 (sedentarios) · 1.4 a 2.0 (activos)</div>
-              <h4>Beneficios clave</h4>
+              <div class="rec">🎯 Oficial: 0.80–0.83 · Sedentarios: 1.0–1.2 · Activos: 1.4–2.0 g/kg/día</div>
               <ul>
-                <li>La pérdida muscular comienza a un ritmo de <strong>3 a 5 % por década</strong> después de los 30, y la tasa metabólica disminuye en paralelo. La proteína adecuada frena este proceso.</li>
-                <li><strong>La distribución importa tanto como el total.</strong> El patrón occidental típico (10 g en el desayuno, 15 g en la comida, 40 g en la cena) es subóptimo. Distribuir <strong>25 a 40 g por comida</strong>, cada una con al menos 2.5 g de leucina, maximiza la síntesis proteica muscular a lo largo del día.</li>
-                <li>Un metaanálisis encontró que ingestas por encima de la RDA pueden reducir el riesgo de fractura de cadera en un <strong>16 %</strong> (HR: 0.84). La vieja hipótesis del "efecto ácido" de la proteína sobre los huesos ha sido desmentida por la evidencia clínica.</li>
-                <li>Durante la restricción calórica, la proteína alta preserva la masa magra, mantiene la tasa metabólica y promueve la <strong>pérdida preferencial de grasa</strong>.</li>
-              </ul>
-              <h4>Conexión con la menopausia</h4>
-              <ul>
-                <li>La disminución de estrógenos reduce la hormona de crecimiento, la IGF-1 y la capacidad de síntesis proteica muscular. Las mujeres posmenopáusicas enfrentan un riesgo sustancialmente mayor de sarcopenia (OR 2.99 en un estudio).</li>
-                <li>Muchos especialistas ahora recomiendan <strong>1.2 a 1.6 g/kg/día</strong> para mujeres en peri y posmenopausia, ajustado por nivel de actividad.</li>
-              </ul>
-              <h4>Consideraciones cardiovasculares</h4>
-              <ul>
-                <li>El riesgo se asocia más con la <strong>fuente</strong> que con la cantidad. Las carnes procesadas (tocino, salchichas, embutidos) se asocian con mayor riesgo cardiovascular por el sodio, los nitritos y los productos de glicación avanzada, no por la proteína en sí.</li>
-                <li>Las carnes magras sin procesar, el pescado, los lácteos y las proteínas vegetales <strong>no muestran tal asociación</strong>.</li>
+                <li>📉 La pérdida muscular comienza: <strong>3–5 % por década</strong> después de los 30. La tasa metabólica baja en paralelo</li>
+                <li>🍽️ <strong>La distribución importa:</strong> 25–40 g por comida (con ≥2.5 g de leucina) en vez de concentrar todo en la cena</li>
+                <li>🦴 Proteína por encima de la RDA: <strong>-16 % riesgo de fractura de cadera</strong> (HR: 0.84). La hipótesis "ácida" fue desmentida</li>
+                <li>⚖️ En restricción calórica: preserva la masa magra y promueve <strong>pérdida preferencial de grasa</strong></li>
+                <li>♀️ <strong>Menopausia:</strong> la caída de estrógenos reduce la síntesis proteica muscular. Riesgo de sarcopenia OR 2.99. Especialistas recomiendan <strong>1.2–1.6 g/kg/día</strong> en peri/posmenopausia</li>
+                <li>❤️ El riesgo cardiovascular viene de la <strong>fuente</strong> (embutidos, tocino), no de la proteína. Carnes magras, pescado y vegetales: sin asociación</li>
               </ul>
             </div></div></div>
           </div>
@@ -1154,34 +1083,20 @@
             <div class="ios-card-head">
               <div class="ios-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div>
               <div class="ios-card-info">
-                <div class="ios-card-label">Adultos mayores (56 a 70 años)</div>
-                <div class="ios-card-stat">1.0 a 1.2 g/kg/día · Contra la resistencia anabólica</div>
+                <div class="ios-card-label">Adultos mayores (56 a 70)</div>
+                <div class="ios-card-stat">1.0–1.2 g/kg/día · Contra la resistencia anabólica</div>
               </div>
               <div class="ios-chevron"></div>
             </div>
             <div class="ios-card-body"><div class="ios-card-body-inner"><div class="ios-card-content protein-card-content">
-              <div class="rec">🎯 Oficial: 0.80 a 0.83 · Grupos expertos (PROT-AGE, ESPEN): 1.0 a 1.2 · Enfermedad: 1.2 a 1.5</div>
-              <h4>El problema central: la resistencia anabólica</h4>
+              <div class="rec">🎯 Oficial: 0.80–0.83 · PROT-AGE/ESPEN: 1.0–1.2 · Enfermedad: 1.2–1.5</div>
               <ul>
-                <li>A partir de los 50, el músculo responde con menor eficacia a la proteína dietética. El mecanismo involucra mayor <strong>extracción esplácnica</strong> (el hígado y el intestino retienen más aminoácidos antes de que lleguen al músculo), menor flujo sanguíneo muscular y resistencia a la insulina del metabolismo proteico.</li>
-                <li>En la práctica: mientras un adulto joven logra la síntesis máxima con 20 g por comida, un adulto mayor necesita aproximadamente <strong>40 g para una respuesta comparable</strong>.</li>
-              </ul>
-              <h4>Beneficios clave</h4>
-              <ul>
-                <li><strong>Huesos y fracturas:</strong> un metaanálisis (Groenendijk et al., 2019) encontró que una ingesta alta de proteína se asoció con una <strong>reducción del 11 % en fracturas de cadera</strong>. Datos observacionales muestran que los adultos mayores que consumen ~1.1 g/kg/día tienen 1.8 % más densidad ósea en la cadera y 6.0 % más en la columna lumbar.</li>
-                <li><strong>Protección cognitiva (evidencia emergente):</strong> un estudio de Harvard con 77,000+ participantes durante 20 años encontró que cada 5 % de calorías de proteína vegetal que reemplazaba a los carbohidratos se asoció con un <strong>26 % menor riesgo de demencia</strong>.</li>
-                <li>La proteína combinada con el ejercicio de resistencia mejora la masa magra en esta población. Los análisis dosis-respuesta sugieren beneficios en rangos de <strong>1.2 a 1.59 g/kg/día</strong>.</li>
-              </ul>
-              <h4>Guía práctica</h4>
-              <ul>
-                <li>Priorizar alimentos ricos en leucina (suero de leche ~12 %, huevos, pollo, res, pescado). La meta es <strong>≥2.5 a 3 g de leucina por comida</strong>.</li>
-                <li>Distribuir la proteína de forma uniforme entre las comidas, en vez de concentrarla en la cena.</li>
-                <li>Opciones suaves: yogurt, queso, huevos, pescado, carnes molidas, tofu, legumbres bien cocidas.</li>
-              </ul>
-              <h4>Precaución renal</h4>
-              <ul>
-                <li>La tasa de filtración glomerular disminuye ~1 mL/min/año después de los 40. Para riñones sanos, ingestas de hasta el doble de la PRI (~1.66 g/kg/día) se consideran seguras (EFSA).</li>
-                <li>Con enfermedad renal crónica (TFGe < 30 mL/min), limitar a <strong>0.55 a 0.80 g/kg/día</strong>. PROT-AGE enfatiza la <strong>evaluación rutinaria de la función renal</strong> antes de aumentar la proteína.</li>
+                <li>🔄 <strong>Resistencia anabólica:</strong> el músculo responde menos a la proteína. Un joven necesita 20 g/comida para la síntesis máxima; un adulto mayor necesita <strong>~40 g</strong></li>
+                <li>🦴 <strong>-11 % fracturas de cadera</strong> con ingesta alta (Groenendijk, 2019). A 1.1 g/kg/día: +6 % densidad ósea lumbar</li>
+                <li>🧠 Proteína vegetal reemplazando carbohidratos: <strong>-26 % riesgo de demencia</strong> (Harvard, 77,000 participantes, 20 años)</li>
+                <li>💪 Con ejercicio de resistencia: beneficios medibles en el rango de <strong>1.2–1.59 g/kg/día</strong></li>
+                <li>🍳 Meta: <strong>≥2.5–3 g de leucina/comida</strong>. Priorizar huevos, pollo, pescado, yogurt, tofu, legumbres cocidas</li>
+                <li>⚠️ Filtración renal baja ~1 mL/min/año después de los 40. Riñones sanos: hasta 1.66 g/kg seguro (EFSA). Con ERC: limitar a <strong>0.55–0.80</strong>. Evaluar función renal antes de aumentar</li>
               </ul>
             </div></div></div>
           </div>
@@ -1191,34 +1106,20 @@
             <div class="ios-card-head">
               <div class="ios-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
               <div class="ios-card-info">
-                <div class="ios-card-label">Edad avanzada (71+ años)</div>
-                <div class="ios-card-stat">1.0 a 1.5 g/kg/día · Proteína como línea de vida</div>
+                <div class="ios-card-label">Edad avanzada (71+)</div>
+                <div class="ios-card-stat">1.0–1.5 g/kg/día · Proteína como línea de vida</div>
               </div>
               <div class="ios-chevron"></div>
             </div>
             <div class="ios-card-body"><div class="ios-card-body-inner"><div class="ios-card-content protein-card-content">
-              <div class="rec">🎯 Sanos: 1.0 a 1.2 · Enfermedad: 1.2 a 1.5 · Enfermedad grave: hasta 2.0 g/kg/día</div>
-              <h4>El contexto</h4>
+              <div class="rec">🎯 Sanos: 1.0–1.2 · Enfermedad: 1.2–1.5 · Grave: hasta 2.0 g/kg/día</div>
               <ul>
-                <li>Todos los desafíos de la etapa anterior se intensifican. La prevalencia de sarcopenia aumenta marcadamente, la resistencia anabólica se agrava y una cascada de barreras prácticas (menor apetito, dificultades dentales, aislamiento social, reducción de la función gástrica) dificulta alcanzar las metas proteicas.</li>
-                <li>En Estados Unidos, el <strong>30 % de los hombres y el 50 % de las mujeres mayores de 71 años</strong> consumen proteína insuficiente.</li>
-              </ul>
-              <h4>Beneficios clave</h4>
-              <ul>
-                <li><strong>Prevención de la fragilidad:</strong> un metaanálisis (Coelho-Junior et al., 2018) encontró que una ingesta alta de proteína se asoció con una <strong>reducción del 33 % en el riesgo de fragilidad</strong> (OR 0.67). La pérdida de masa muscular es el principal predictor de caídas, pérdida de independencia e institucionalización.</li>
-                <li><strong>Inversión de la relación mortalidad-proteína:</strong> mientras que en adultos jóvenes la ingesta alta de proteína animal se ha asociado con mayor riesgo de cáncer en algunos estudios, en adultos mayores de 65, una ingesta proteica más alta se asocia con <strong>menor mortalidad general</strong>.</li>
-                <li>El ejercicio de resistencia combinado con suplementación de aminoácidos mejora tanto la masa muscular como la fuerza. El ejercicio sensibiliza al músculo a los aminoácidos, compensando parcialmente la resistencia anabólica, y <strong>el efecto persiste al menos 48 horas</strong>.</li>
-              </ul>
-              <h4>Fuentes prácticas</h4>
-              <ul>
-                <li>Priorizar <strong>texturas suaves</strong>: huevos, yogurt, pescado suave, tofu, carnes molidas, sopas y guisados.</li>
-                <li>Los suplementos de proteína de suero son una herramienta legítima cuando no se cubren las necesidades con alimentos. Los suplementos orales con <strong>15 a 20 g de proteína por porción</strong> son prácticos para personas hospitalizadas o institucionalizadas.</li>
-                <li>La meta por comida es <strong>≥25 a 30 g de proteína</strong>, distribuida en desayuno, comida y cena.</li>
-              </ul>
-              <h4>Notas especiales</h4>
-              <ul>
-                <li><strong>Interacciones con medicamentos:</strong> la proteína puede afectar la absorción de L-dopa (Parkinson) al competir por los transportadores de aminoácidos. Quienes toman warfarina necesitan una ingesta proteica consistente para mantener el INR estable.</li>
-                <li><strong>Investigación emergente sobre "alimentación pulsada":</strong> Arnal et al. (1999) encontraron que concentrar el 72 al 80 % de la proteína diaria en una sola comida mejoró el balance de nitrógeno en mujeres mayores. La evidencia es limitada; la mayoría de los expertos aún recomiendan distribuir la proteína.</li>
+                <li>📊 El <strong>30 % de hombres y 50 % de mujeres</strong> mayores de 71 consumen proteína insuficiente (EE.UU.)</li>
+                <li>🛡️ <strong>-33 % riesgo de fragilidad</strong> con ingesta alta (Coelho-Junior, 2018). La pérdida muscular es el principal predictor de caídas e institucionalización</li>
+                <li>🔄 Después de los 65, más proteína se asocia con <strong>menor mortalidad general</strong> (inversión vs. adultos jóvenes)</li>
+                <li>💪 Ejercicio de resistencia + aminoácidos: mejora masa y fuerza. El efecto <strong>persiste 48+ horas</strong></li>
+                <li>🍳 Texturas suaves: huevos, yogurt, pescado, tofu, carnes molidas, sopas. Meta: <strong>≥25–30 g/comida</strong></li>
+                <li>💊 L-dopa (Parkinson): la proteína compite por absorción. Warfarina: mantener ingesta consistente para INR estable</li>
               </ul>
             </div></div></div>
           </div>
@@ -1231,61 +1132,32 @@
             <thead>
               <tr>
                 <th>Edad</th>
-                <th>Ingesta (g/kg/día)</th>
+                <th>g/kg/día</th>
                 <th>3 beneficios principales</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td class="age-col">4 a 8</td>
-                <td class="intake-col">0.86 a 0.95</td>
-                <td>Crecimiento y tejido nuevo · Desarrollo cerebral · Maduración inmunológica</td>
-              </tr>
-              <tr>
-                <td class="age-col">9 a 12</td>
-                <td class="intake-col">0.89 a 0.95</td>
-                <td>Preparación puberal · Acumulación ósea · Desarrollo cognitivo</td>
-              </tr>
-              <tr>
-                <td class="age-col">13 a 17</td>
-                <td class="intake-col">0.83 a 0.90</td>
-                <td>Masa ósea máxima · Desarrollo muscular · Soporte hormonal</td>
-              </tr>
-              <tr>
-                <td class="age-col">18 a 30</td>
-                <td class="intake-col">0.80 a 0.83</td>
-                <td>Optimización muscular · Consolidación ósea · Composición corporal</td>
-              </tr>
-              <tr>
-                <td class="age-col">31 a 55</td>
-                <td class="intake-col">0.80 a 0.83</td>
-                <td>Prevención de sarcopenia · Control de peso · Densidad ósea</td>
-              </tr>
-              <tr>
-                <td class="age-col">56 a 70</td>
-                <td class="intake-col">1.0 a 1.2*</td>
-                <td>Contra la resistencia anabólica · Reducción de fracturas · Independencia funcional</td>
-              </tr>
-              <tr>
-                <td class="age-col">71+</td>
-                <td class="intake-col">1.0 a 1.5*</td>
-                <td>Prevención de fragilidad · Defensa inmunológica · Reducción de mortalidad</td>
-              </tr>
+              <tr><td class="age-col">4–8</td><td class="intake-col">0.86–0.95</td><td>Crecimiento · Cerebro · Inmunidad</td></tr>
+              <tr><td class="age-col">9–12</td><td class="intake-col">0.89–0.95</td><td>Prep. puberal · Huesos · Cognición</td></tr>
+              <tr><td class="age-col">13–17</td><td class="intake-col">0.83–0.90</td><td>Masa ósea · Músculo · Hormonas</td></tr>
+              <tr><td class="age-col">18–30</td><td class="intake-col">0.80–0.83</td><td>Músculo óptimo · Huesos · Comp. corporal</td></tr>
+              <tr><td class="age-col">31–55</td><td class="intake-col">0.80–0.83</td><td>Anti-sarcopenia · Peso · Densidad ósea</td></tr>
+              <tr><td class="age-col">56–70</td><td class="intake-col">1.0–1.2*</td><td>Resist. anabólica · Fracturas · Independencia</td></tr>
+              <tr><td class="age-col">71+</td><td class="intake-col">1.0–1.5*</td><td>Fragilidad · Inmunidad · Mortalidad</td></tr>
             </tbody>
           </table>
-          <p style="font-size:11px;color:var(--ios-text3);margin-top:8px;">* Recomendación de grupos expertos (PROT-AGE, ESPEN). Los lineamientos regulatorios oficiales (OMS, IOM) mantienen 0.80 a 0.83 para todos los adultos.</p>
+          <p style="font-size:11px;color:var(--ios-text3);margin-top:6px;">* Recomendación de PROT-AGE/ESPEN. Los lineamientos regulatorios (OMS, IOM) mantienen 0.80–0.83 para todos los adultos.</p>
         </div>
 
         <!-- Consensus note -->
-        <div style="padding:12px 16px;border-top:0.5px solid var(--ios-separator);font-size:13px;color:var(--ios-text2);line-height:1.5;">
-          <strong style="color:var(--ios-text);">¿Dónde está la ciencia?</strong><br>
-          <strong style="color:var(--ios-green);">Consenso fuerte:</strong> la proteína es esencial para el crecimiento, el músculo, los huesos, el sistema inmune y la cognición en todas las edades. Ingestas de hasta 2.0 g/kg/día son seguras en personas sanas. La combinación de proteína y ejercicio de resistencia es la intervención más eficaz contra la sarcopenia.<br>
-          <strong style="color:var(--ios-orange);">Debate activo:</strong> si la RDA de 0.8 g/kg/día es realmente adecuada (los estudios IAAO sugieren que no). Si los adultos mayores necesitan lineamientos formalmente más altos (los organismos reguladores dicen que no; los grupos clínicos dicen que sí; varios países ya actualizaron sus guías).<br>
-          <strong style="color:var(--ios-text3);">Evidencia emergente:</strong> conexión proteína-microbioma intestinal, alimentación pulsada vs. distribuida, la hipótesis del "apalancamiento proteico" en la menopausia, y los umbrales precisos de leucina por edad.
+        <div style="padding:10px 16px;border-top:0.5px solid var(--ios-separator);font-size:13px;color:var(--ios-text2);line-height:1.5;">
+          <strong style="color:var(--ios-green);">✅ Consenso fuerte:</strong> proteína esencial en todas las edades. Hasta 2.0 g/kg/día seguro en personas sanas. Proteína + ejercicio de resistencia = la mejor intervención contra la sarcopenia.<br>
+          <strong style="color:var(--ios-orange);">🔄 Debate activo:</strong> si la RDA de 0.8 es adecuada (estudios IAAO sugieren que no). Si los mayores de 65 necesitan lineamientos más altos (varios países ya los actualizaron).<br>
+          <strong style="color:var(--ios-text3);">🔬 Emergente:</strong> proteína-microbioma, alimentación pulsada, apalancamiento proteico en menopausia, umbrales de leucina por edad.
         </div>
 
-        <div class="src" style="padding:8px 16px 14px;font-size:12px;color:var(--ios-text3);font-style:italic;">
-          Fuentes: OMS/FAO/UNU, IOM DRIs (Health Canada), EFSA PRIs, PROT-AGE Study Group, ESPEN, Elango et al. 2011, Morton et al. <em>BJSM</em> 2018, Coelho-Junior et al. 2018, Groenendijk et al. 2019, Antonio et al. (series), Kar et al. 2008, Crookston et al. 2010, Chevalley et al. 2008, Arnal et al. 1999, Lundborg 2022, KDIGO 2024.
+        <div class="src" style="padding:6px 16px 12px;font-size:12px;color:var(--ios-text3);font-style:italic;">
+          OMS/FAO/UNU · IOM DRIs · EFSA · PROT-AGE · ESPEN · Morton et al. <em>BJSM</em> 2018 · Coelho-Junior 2018 · Groenendijk 2019 · Kar 2008 · Crookston 2010 · Chevalley 2008 · KDIGO 2024
         </div>
 
       </div></div>
