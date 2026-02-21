@@ -2,622 +2,804 @@
 <html lang="es-MX">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Alimenta Su Futuro · Nutrición Infantil Basada en Ciencia</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>Alimenta Su Futuro</title>
   <meta name="description" content="5 peligros, 5 promesas y un plan de acción. Lo que la ciencia dice sobre la nutrición de tus hijos.">
-  <meta name="theme-color" content="#1a1a2e">
+  <meta name="theme-color" content="#f2f2f7">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌱</text></svg>">
   <style>
     :root {
-      --color-hero-bg: #1a1a2e;
-      --color-hero-accent: #e2b856;
-      --color-danger-bg: #1c1216;
-      --color-danger-accent: #e74c3c;
-      --color-danger-card: #2a1a1e;
-      --color-promise-bg: #f0f7f3;
-      --color-promise-accent: #1a8a5c;
-      --color-promise-card: #ffffff;
-      --color-plan-bg: #f5f8fc;
-      --color-plan-accent: #2563eb;
-      --color-text-dark: #1a1a2e;
-      --color-text-light: #ecf0f1;
-      --color-text-muted: #6b7280;
-      --font-main: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-      --radius: 16px;
-      --radius-sm: 10px;
+      --ios-bg: #f2f2f7;
+      --ios-card: #ffffff;
+      --ios-separator: rgba(60,60,67,0.12);
+      --ios-text: #1c1c1e;
+      --ios-text2: #8e8e93;
+      --ios-text3: #aeaeb2;
+      --ios-red: #ff3b30;
+      --ios-green: #34c759;
+      --ios-blue: #007aff;
+      --ios-orange: #ff9500;
+      --ios-red-bg: rgba(255,59,48,0.12);
+      --ios-green-bg: rgba(52,199,89,0.12);
+      --ios-blue-bg: rgba(0,122,255,0.1);
+      --ios-radius: 13px;
+      --ios-radius-lg: 20px;
+      --safe-top: env(safe-area-inset-top, 0px);
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
     }
 
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 
     body {
-      font-family: var(--font-main);
-      font-size: 16px;
-      line-height: 1.7;
-      color: var(--color-text-dark);
-      background: #fff;
+      font-family: -apple-system, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', sans-serif;
+      font-size: 17px;
+      line-height: 1.47;
+      color: var(--ios-text);
+      background: var(--ios-bg);
       -webkit-font-smoothing: antialiased;
+      -webkit-tap-highlight-color: transparent;
       overflow-x: hidden;
     }
 
-    /* NAV */
-    .nav {
-      position: fixed; bottom: 0; left: 0; right: 0;
-      background: rgba(26,26,46,0.95);
-      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-      z-index: 100;
-      padding: 0.5rem 0.75rem;
-      padding-bottom: calc(0.5rem + env(safe-area-inset-bottom));
-      transform: translateY(100%);
-      transition: transform 0.4s ease;
-      border-top: 1px solid rgba(255,255,255,0.1);
+    /* ===== iOS NAV BAR ===== */
+    .ios-nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(242,242,247,0.72);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 0.5px solid var(--ios-separator);
+      padding-top: var(--safe-top);
+      transform: translateY(-100%);
+      transition: transform 0.3s ease;
     }
-    .nav.visible { transform: translateY(0); }
-    .nav-inner { display: flex; justify-content: space-around; max-width: 480px; margin: 0 auto; }
-    .nav a {
-      color: rgba(255,255,255,0.6); text-decoration: none;
-      font-size: 0.7rem; font-weight: 600; text-transform: uppercase;
-      letter-spacing: 0.05em; padding: 0.4rem 0.5rem; border-radius: 8px;
-      transition: all 0.3s ease; text-align: center;
-      display: flex; flex-direction: column; align-items: center; gap: 2px;
+    .ios-nav.visible { transform: translateY(0); }
+    .ios-nav-inner {
+      display: flex; justify-content: center; gap: 2px;
+      padding: 8px 16px 10px; max-width: 500px; margin: 0 auto;
     }
-    .nav a .nav-icon { font-size: 1.1rem; }
-    .nav a.active, .nav a:hover { color: var(--color-hero-accent); }
+    .ios-nav a {
+      flex: 1; text-align: center; text-decoration: none;
+      font-size: 10px; font-weight: 500; letter-spacing: 0.01em;
+      color: var(--ios-text2);
+      display: flex; flex-direction: column; align-items: center; gap: 1px;
+      padding: 4px 0; border-radius: 8px;
+      transition: color 0.2s ease;
+    }
+    .ios-nav a .ico { font-size: 22px; line-height: 1; }
+    .ios-nav a.active { color: var(--ios-blue); }
 
-    /* HERO */
+    /* ===== iOS TAB BAR (bottom) ===== */
+    .ios-tabs {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(242,242,247,0.72);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-top: 0.5px solid var(--ios-separator);
+      padding-bottom: var(--safe-bottom);
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+    }
+    .ios-tabs.visible { transform: translateY(0); }
+    .ios-tabs-inner {
+      display: flex; justify-content: space-around;
+      padding: 6px 0 4px; max-width: 500px; margin: 0 auto;
+    }
+    .ios-tabs a {
+      flex: 1; text-align: center; text-decoration: none;
+      font-size: 10px; font-weight: 500;
+      color: var(--ios-text2);
+      display: flex; flex-direction: column; align-items: center; gap: 2px;
+      padding: 2px 0;
+      transition: color 0.2s ease;
+    }
+    .ios-tabs a .ico {
+      font-size: 24px; line-height: 1;
+      font-weight: 400;
+    }
+    .ios-tabs a.active { color: var(--ios-blue); }
+
+    /* ===== HERO ===== */
     .hero {
       min-height: 100vh; min-height: 100dvh;
-      background: linear-gradient(165deg, #1a1a2e 0%, #16213e 40%, #0f3460 100%);
+      background: linear-gradient(170deg, #000000 0%, #1c1c1e 100%);
       display: flex; flex-direction: column; justify-content: center; align-items: center;
-      text-align: center; padding: 2rem 1.5rem; position: relative; overflow: hidden;
+      text-align: center; padding: 3rem 1.5rem; position: relative;
     }
-    .hero::before {
-      content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
-      background: radial-gradient(circle at 30% 50%, rgba(226,184,86,0.06) 0%, transparent 50%),
-                  radial-gradient(circle at 70% 80%, rgba(231,76,60,0.04) 0%, transparent 40%);
-      animation: heroGlow 12s ease-in-out infinite alternate;
+    .hero-pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+      padding: 6px 14px; border-radius: 50px;
+      font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.7);
+      margin-bottom: 1.5rem;
+      border: 0.5px solid rgba(255,255,255,0.15);
     }
-    @keyframes heroGlow { 0% { transform: translate(0,0); } 100% { transform: translate(-5%,-3%); } }
-    .hero-content { position: relative; z-index: 1; max-width: 600px; }
-    .hero-badge {
-      display: inline-block; background: rgba(226,184,86,0.15); color: var(--color-hero-accent);
-      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
-      padding: 0.4rem 1rem; border-radius: 50px; margin-bottom: 1.5rem;
-      border: 1px solid rgba(226,184,86,0.25);
+    .hero-pill .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--ios-green); }
+    .hero h1 {
+      font-size: 40px; font-weight: 700; color: #fff;
+      line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 12px;
     }
-    .hero h1 { font-size: 2.5rem; font-weight: 800; color: #fff; line-height: 1.15; margin-bottom: 1rem; letter-spacing: -0.02em; }
-    .hero h1 span { color: var(--color-hero-accent); }
-    .hero-subtitle { font-size: 1.15rem; color: rgba(255,255,255,0.75); line-height: 1.6; margin-bottom: 2rem; max-width: 440px; margin-left: auto; margin-right: auto; }
-    .hero-meta { font-size: 0.8rem; color: rgba(255,255,255,0.4); margin-bottom: 2.5rem; }
-    .hero-cta { display: flex; flex-direction: column; gap: 0.75rem; align-items: center; }
-    .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.9rem 2rem; border-radius: 50px; font-size: 0.95rem; font-weight: 700; text-decoration: none; transition: all 0.3s ease; border: none; cursor: pointer; }
-    .btn-primary { background: var(--color-hero-accent); color: var(--color-hero-bg); }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(226,184,86,0.3); }
-    .btn-ghost { background: transparent; color: rgba(255,255,255,0.6); font-size: 0.85rem; font-weight: 500; padding: 0.5rem 1rem; }
-    .scroll-indicator { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); animation: bounce 2s ease-in-out infinite; }
-    .scroll-indicator svg { width: 24px; height: 24px; stroke: rgba(255,255,255,0.3); stroke-width: 2; fill: none; }
-    @keyframes bounce { 0%,100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(8px); } }
-
-    /* SECTIONS */
-    .section { padding: 4rem 1.25rem; }
-    .section-header { text-align: center; margin-bottom: 2.5rem; }
-    .section-number { display: inline-block; font-size: 0.7rem; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.3rem 0.8rem; border-radius: 50px; margin-bottom: 1rem; }
-    .section-header h2 { font-size: 1.85rem; font-weight: 800; line-height: 1.2; margin-bottom: 0.5rem; letter-spacing: -0.02em; }
-    .section-header p { font-size: 0.95rem; color: var(--color-text-muted); max-width: 500px; margin: 0 auto; }
-
-    /* INTRO */
-    .intro { background: #fff; padding: 3rem 1.5rem; }
-    .intro-content { max-width: 600px; margin: 0 auto; }
-    .intro-quote { font-size: 1.15rem; font-weight: 600; color: var(--color-text-dark); line-height: 1.6; border-left: 4px solid var(--color-hero-accent); padding-left: 1.25rem; margin-bottom: 1rem; }
-    .intro-text { font-size: 0.95rem; color: var(--color-text-muted); line-height: 1.7; }
-    .intro-text strong { color: var(--color-text-dark); }
-
-    /* DANGER */
-    .dangers { background: var(--color-danger-bg); color: var(--color-text-light); padding: 4rem 1.25rem 4.5rem; }
-    .dangers .section-number { background: rgba(231,76,60,0.2); color: var(--color-danger-accent); }
-    .dangers .section-header h2 { color: #fff; }
-    .dangers .section-header p { color: rgba(255,255,255,0.5); }
-
-    .card {
-      border-radius: var(--radius); padding: 1.5rem 1.25rem; margin-bottom: 1.25rem;
-      position: relative; overflow: hidden;
+    .hero h1 em { font-style: normal; color: var(--ios-orange); }
+    .hero-sub {
+      font-size: 17px; color: rgba(255,255,255,0.55); line-height: 1.5;
+      max-width: 340px; margin: 0 auto 24px;
     }
-    .card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; }
+    .hero-meta {
+      font-size: 13px; color: rgba(255,255,255,0.3); margin-bottom: 32px;
+    }
+    .hero-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--ios-blue); color: #fff;
+      padding: 14px 28px; border-radius: 14px;
+      font-size: 17px; font-weight: 600; text-decoration: none;
+      transition: transform 0.2s ease, filter 0.2s ease;
+    }
+    .hero-btn:active { transform: scale(0.97); filter: brightness(0.9); }
+    .hero-link {
+      display: block; margin-top: 14px;
+      font-size: 15px; color: var(--ios-blue); text-decoration: none;
+      font-weight: 400;
+    }
+    .scroll-hint {
+      position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+      width: 28px; height: 42px; border-radius: 14px;
+      border: 2px solid rgba(255,255,255,0.2);
+    }
+    .scroll-hint::after {
+      content: ''; position: absolute; top: 8px; left: 50%; transform: translateX(-50%);
+      width: 4px; height: 8px; border-radius: 2px; background: rgba(255,255,255,0.4);
+      animation: scrollDot 2s ease-in-out infinite;
+    }
+    @keyframes scrollDot {
+      0%, 100% { transform: translateX(-50%) translateY(0); opacity: 1; }
+      50% { transform: translateX(-50%) translateY(12px); opacity: 0.2; }
+    }
 
-    .danger-card { background: var(--color-danger-card); border: 1px solid rgba(231,76,60,0.15); }
-    .danger-card::before { background: var(--color-danger-accent); }
-    .danger-card .card-number { color: var(--color-danger-accent); }
-    .danger-card .card-title { color: #fff; }
-    .danger-card .stat-highlight { background: rgba(231,76,60,0.15); color: var(--color-danger-accent); }
-    .danger-card .card-text { color: rgba(255,255,255,0.7); }
-    .danger-card .card-list li { color: rgba(255,255,255,0.65); }
-    .danger-card .card-list li::before { background: var(--color-danger-accent); }
-    .danger-card .card-source { color: rgba(255,255,255,0.3); }
-    .danger-card .card-source a { color: rgba(255,255,255,0.4); }
+    /* ===== CONTENT AREA ===== */
+    .content { padding-bottom: calc(70px + var(--safe-bottom)); }
 
-    .card-number { font-size: 0.65rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.5rem; }
-    .card-title { font-size: 1.2rem; font-weight: 800; line-height: 1.3; margin-bottom: 0.6rem; }
-    .stat-highlight { display: inline-block; padding: 0.5rem 0.9rem; border-radius: var(--radius-sm); font-size: 0.85rem; font-weight: 700; margin-bottom: 0.75rem; }
-    .card-text { font-size: 0.88rem; line-height: 1.6; margin-bottom: 0.5rem; }
-    .card-list { list-style: none; padding: 0; margin: 0.5rem 0; }
-    .card-list li { padding: 0.25rem 0 0.25rem 1.4rem; position: relative; font-size: 0.88rem; line-height: 1.5; }
-    .card-list li::before { content: ''; position: absolute; left: 0; top: 0.65rem; width: 7px; height: 7px; border-radius: 50%; opacity: 0.6; }
-    .card-source { font-size: 0.72rem; margin-top: 0.6rem; font-style: italic; }
-    .card-source a { text-decoration: none; }
-    .card-source a:hover { text-decoration: underline; }
+    /* ===== iOS SECTION ===== */
+    .ios-section { padding: 20px 16px 8px; }
+    .ios-section-title {
+      font-size: 34px; font-weight: 700; letter-spacing: -0.01em;
+      line-height: 1.15; margin-bottom: 4px;
+    }
+    .ios-section-sub {
+      font-size: 15px; color: var(--ios-text2); margin-bottom: 16px; line-height: 1.4;
+    }
 
-    /* COLLAPSIBLE CARDS */
-    .card-head { cursor: pointer; position: relative; }
-    .card-head { padding-bottom: 0.5rem; }
-    .card-toggle {
+    /* ===== iOS CARD GROUP ===== */
+    .ios-group {
+      background: var(--ios-card);
+      border-radius: var(--ios-radius);
+      margin: 0 16px 12px;
+      overflow: hidden;
+      box-shadow: 0 0 0 0.5px var(--ios-separator);
+    }
+
+    /* ===== iOS COLLAPSIBLE CARD ===== */
+    .ios-card {
+      border-bottom: 0.5px solid var(--ios-separator);
+    }
+    .ios-card:last-child { border-bottom: none; }
+
+    .ios-card-head {
+      display: flex; align-items: center; gap: 12px;
+      padding: 12px 16px;
+      cursor: pointer;
+      transition: background 0.15s ease;
+      -webkit-user-select: none; user-select: none;
+    }
+    .ios-card-head:active { background: rgba(0,0,0,0.04); }
+
+    .ios-card-icon {
+      width: 36px; height: 36px; border-radius: 8px;
       display: flex; align-items: center; justify-content: center;
-      width: 42px; height: 42px;
-      border-radius: 50%;
-      font-size: 2rem; font-weight: 300; line-height: 1;
-      margin: 0.5rem auto 0;
-      transition: transform 0.35s ease, background 0.3s ease;
+      font-size: 18px; font-weight: 700; flex-shrink: 0;
     }
-    .card.open .card-toggle { transform: rotate(45deg); }
-    .danger-card .card-toggle { color: var(--color-danger-accent); background: rgba(231,76,60,0.12); }
-    .danger-card.open .card-toggle { background: rgba(231,76,60,0.25); }
-    .promise-card .card-toggle { color: var(--color-promise-accent); background: rgba(26,138,92,0.1); }
-    .promise-card.open .card-toggle { background: rgba(26,138,92,0.2); }
-    .card-body {
+    .danger .ios-card-icon { background: var(--ios-red-bg); color: var(--ios-red); }
+    .promise .ios-card-icon { background: var(--ios-green-bg); color: var(--ios-green); }
+
+    .ios-card-info { flex: 1; min-width: 0; }
+    .ios-card-label {
+      font-size: 17px; font-weight: 600; line-height: 1.3;
+      color: var(--ios-text);
+    }
+    .ios-card-stat {
+      font-size: 13px; font-weight: 500; line-height: 1.3; margin-top: 1px;
+    }
+    .danger .ios-card-stat { color: var(--ios-red); }
+    .promise .ios-card-stat { color: var(--ios-green); }
+
+    .ios-chevron {
+      width: 13px; height: 13px; flex-shrink: 0;
+      border-right: 2px solid var(--ios-text3);
+      border-bottom: 2px solid var(--ios-text3);
+      transform: rotate(45deg);
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      margin-right: 2px;
+    }
+    .ios-card.open .ios-chevron { transform: rotate(-135deg); }
+
+    .ios-card-body {
       display: grid;
       grid-template-rows: 0fr;
-      transition: grid-template-rows 0.4s ease, opacity 0.3s ease;
-      opacity: 0;
+      transition: grid-template-rows 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    .card-body > * { overflow: hidden; }
-    .card.open .card-body { grid-template-rows: 1fr; opacity: 1; }
-    .card-body .card-list { margin-top: 0; }
-    .card:not(.open) .card-body { pointer-events: none; }
+    .ios-card.open .ios-card-body { grid-template-rows: 1fr; }
+    .ios-card-body-inner { overflow: hidden; }
 
-    /* PROMISE */
-    .promises { background: var(--color-promise-bg); padding: 4rem 1.25rem 4.5rem; }
-    .promises .section-number { background: rgba(26,138,92,0.12); color: var(--color-promise-accent); }
-    .promise-card { background: var(--color-promise-card); border: 1px solid rgba(26,138,92,0.12); box-shadow: 0 2px 12px rgba(0,0,0,0.04); }
-    .promise-card::before { background: var(--color-promise-accent); }
-    .promise-card .card-number { color: var(--color-promise-accent); }
-    .promise-card .card-title { color: var(--color-text-dark); }
-    .promise-card .stat-highlight { background: rgba(26,138,92,0.08); color: var(--color-promise-accent); }
-    .promise-card .card-text { color: var(--color-text-muted); }
-    .promise-card .card-list li { color: var(--color-text-muted); }
-    .promise-card .card-list li::before { background: var(--color-promise-accent); }
-    .promise-card .card-source { color: rgba(0,0,0,0.3); }
-    .promise-card .card-source a { color: var(--color-plan-accent); }
-
-    /* TRANSITION */
-    .transition-banner { background: linear-gradient(135deg, #1a8a5c, #16a085); color: #fff; text-align: center; padding: 2.5rem 1.5rem; }
-    .transition-banner h3 { font-size: 1.3rem; font-weight: 800; margin-bottom: 0.4rem; }
-    .transition-banner p { font-size: 0.95rem; opacity: 0.85; max-width: 480px; margin: 0 auto; }
-
-    /* PLAN */
-    .plan { background: var(--color-plan-bg); padding: 4rem 1.25rem 4.5rem; }
-    .plan .section-number { background: rgba(37,99,235,0.1); color: var(--color-plan-accent); }
-
-    .req-box { background: #fff; border-radius: var(--radius); padding: 1.5rem 1.25rem; margin-bottom: 1.5rem; border: 1px solid rgba(37,99,235,0.1); box-shadow: 0 2px 12px rgba(0,0,0,0.04); }
-    .req-box h3 { font-size: 1rem; font-weight: 800; color: var(--color-plan-accent); margin-bottom: 0.75rem; }
-    .req-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; }
-    .req-item { background: var(--color-plan-bg); border-radius: var(--radius-sm); padding: 0.75rem; text-align: center; }
-    .req-item .val { font-size: 1.2rem; font-weight: 800; color: var(--color-plan-accent); }
-    .req-item .lbl { font-size: 0.65rem; color: var(--color-text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 0.15rem; }
-    .req-note { background: rgba(37,99,235,0.05); border-radius: var(--radius-sm); padding: 0.8rem 1rem; margin-top: 0.6rem; font-size: 0.82rem; color: var(--color-text-muted); }
-    .req-note strong { color: var(--color-plan-accent); }
-
-    .step-card { background: #fff; border-radius: var(--radius); padding: 1.5rem 1.25rem; margin-bottom: 1.25rem; border: 1px solid rgba(37,99,235,0.08); box-shadow: 0 2px 12px rgba(0,0,0,0.04); }
-    .step-badge { display: inline-block; font-size: 0.65rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-plan-accent); background: rgba(37,99,235,0.08); padding: 0.25rem 0.7rem; border-radius: 50px; margin-bottom: 0.6rem; }
-    .step-card h4 { font-size: 1.05rem; font-weight: 800; color: var(--color-text-dark); margin-bottom: 0.6rem; }
-    .step-list { list-style: none; padding: 0; }
-    .step-list li { padding: 0.4rem 0 0.4rem 1.8rem; position: relative; font-size: 0.88rem; color: var(--color-text-dark); border-bottom: 1px solid rgba(0,0,0,0.04); }
-    .step-list li:last-child { border-bottom: none; }
-    .step-list li::before { content: '\2713'; position: absolute; left: 0; color: var(--color-plan-accent); font-weight: 700; }
-    .step-list li .sub { display: block; font-size: 0.78rem; color: var(--color-text-muted); margin-top: 0.1rem; }
-
-    /* KEY MESSAGE */
-    .key-msg { background: linear-gradient(135deg, #1a1a2e, #16213e); color: #fff; text-align: center; padding: 3rem 1.5rem; }
-    .key-msg h3 { font-size: 1.5rem; font-weight: 800; margin-bottom: 0.75rem; line-height: 1.3; }
-    .key-msg p { font-size: 1rem; opacity: 0.8; max-width: 480px; margin: 0 auto 0.5rem; line-height: 1.6; }
-    .key-msg .hl { color: var(--color-hero-accent); font-weight: 700; }
-
-    /* SOURCES */
-    .sources { background: #fafafa; padding: 3rem 1.25rem; }
-    .sources h2 { font-size: 1.2rem; font-weight: 800; margin-bottom: 1rem; text-align: center; }
-    .src-list { max-width: 600px; margin: 0 auto; list-style: none; padding: 0; }
-    .src-list li { padding: 0.4rem 0; font-size: 0.75rem; color: var(--color-text-muted); border-bottom: 1px solid rgba(0,0,0,0.05); line-height: 1.4; }
-    .src-list a { color: var(--color-plan-accent); text-decoration: none; }
-    .src-list a:hover { text-decoration: underline; }
-
-    /* FOOTER */
-    .footer {
-      background: var(--color-hero-bg); color: rgba(255,255,255,0.4); text-align: center;
-      padding: 2rem 1.5rem calc(2rem + 60px + env(safe-area-inset-bottom)); font-size: 0.78rem; line-height: 1.6;
+    .ios-card-content {
+      padding: 0 16px 14px 64px;
+      font-size: 15px; line-height: 1.5; color: var(--ios-text2);
     }
-    .footer p + p { margin-top: 0.4rem; }
+    .ios-card-content ul {
+      list-style: none; padding: 0; margin: 0;
+    }
+    .ios-card-content li {
+      padding: 6px 0;
+      border-bottom: 0.5px solid var(--ios-separator);
+    }
+    .ios-card-content li:last-child { border-bottom: none; }
+    .ios-card-content strong { color: var(--ios-text); font-weight: 600; }
+    .ios-card-content em { font-style: italic; }
+    .ios-card-content .src {
+      font-size: 12px; color: var(--ios-text3); margin-top: 8px;
+      font-style: italic;
+    }
+    .ios-card-content .src a { color: var(--ios-blue); text-decoration: none; }
 
-    /* ANIMATIONS */
-    .reveal { opacity: 0; transform: translateY(25px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    /* ===== TRANSITION BANNER ===== */
+    .ios-banner {
+      margin: 8px 16px 12px;
+      background: linear-gradient(135deg, #34c759, #30d158);
+      border-radius: var(--ios-radius);
+      padding: 20px;
+      text-align: center; color: #fff;
+    }
+    .ios-banner h3 { font-size: 22px; font-weight: 700; margin-bottom: 4px; }
+    .ios-banner p { font-size: 15px; opacity: 0.9; line-height: 1.4; }
+
+    /* ===== PLAN SECTION ===== */
+    .plan-section { padding-top: 0; }
+
+    .ios-plan-card {
+      background: var(--ios-card);
+      border-radius: var(--ios-radius);
+      margin: 0 16px 12px;
+      overflow: hidden;
+      box-shadow: 0 0 0 0.5px var(--ios-separator);
+    }
+
+    .ios-plan-head {
+      display: flex; align-items: center; gap: 12px;
+      padding: 14px 16px 6px;
+    }
+    .ios-plan-badge {
+      font-size: 11px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--ios-blue); background: var(--ios-blue-bg);
+      padding: 3px 10px; border-radius: 6px;
+    }
+    .ios-plan-title {
+      font-size: 17px; font-weight: 700; padding: 0 16px 4px;
+    }
+
+    .ios-plan-list {
+      list-style: none; padding: 0; margin: 0;
+    }
+    .ios-plan-list li {
+      display: flex; align-items: flex-start; gap: 12px;
+      padding: 10px 16px;
+      border-top: 0.5px solid var(--ios-separator);
+      font-size: 15px; line-height: 1.4;
+    }
+    .ios-plan-list .check {
+      width: 22px; height: 22px; border-radius: 50%;
+      background: var(--ios-blue-bg); color: var(--ios-blue);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; font-weight: 700; flex-shrink: 0; margin-top: 1px;
+    }
+    .ios-plan-list .item-text { flex: 1; }
+    .ios-plan-list .item-sub {
+      display: block; font-size: 13px; color: var(--ios-text2); margin-top: 2px;
+    }
+
+    .ios-plan-note {
+      margin: 0 16px; padding: 10px 14px;
+      background: var(--ios-blue-bg); border-radius: 10px;
+      font-size: 13px; color: var(--ios-text2);
+      margin-bottom: 14px;
+    }
+    .ios-plan-note strong { color: var(--ios-blue); }
+
+    /* ===== REQUIREMENTS BOX ===== */
+    .ios-req {
+      background: var(--ios-card);
+      border-radius: var(--ios-radius);
+      margin: 0 16px 12px; padding: 16px;
+      box-shadow: 0 0 0 0.5px var(--ios-separator);
+    }
+    .ios-req h3 { font-size: 15px; font-weight: 700; color: var(--ios-blue); margin-bottom: 12px; }
+    .ios-req-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .ios-req-item {
+      background: var(--ios-bg); border-radius: 10px;
+      padding: 10px; text-align: center;
+    }
+    .ios-req-val { font-size: 20px; font-weight: 700; color: var(--ios-blue); }
+    .ios-req-lbl { font-size: 11px; color: var(--ios-text2); text-transform: uppercase; letter-spacing: 0.03em; margin-top: 2px; }
+
+    /* ===== KEY MESSAGE ===== */
+    .ios-key {
+      margin: 8px 16px 12px;
+      background: linear-gradient(135deg, #1c1c1e, #2c2c2e);
+      border-radius: var(--ios-radius-lg);
+      padding: 28px 24px;
+      text-align: center; color: #fff;
+    }
+    .ios-key h3 { font-size: 24px; font-weight: 700; line-height: 1.25; margin-bottom: 10px; }
+    .ios-key p { font-size: 15px; opacity: 0.7; line-height: 1.5; margin-bottom: 4px; }
+    .ios-key .hl { color: var(--ios-orange); opacity: 1; font-weight: 600; }
+
+    /* ===== SOURCES ===== */
+    .ios-sources {
+      background: var(--ios-card);
+      border-radius: var(--ios-radius);
+      margin: 0 16px 12px;
+      box-shadow: 0 0 0 0.5px var(--ios-separator);
+    }
+    .ios-sources-head {
+      padding: 12px 16px; font-size: 15px; font-weight: 600;
+      border-bottom: 0.5px solid var(--ios-separator);
+      display: flex; align-items: center; justify-content: space-between;
+      cursor: pointer; -webkit-user-select: none; user-select: none;
+    }
+    .ios-sources-head:active { background: rgba(0,0,0,0.04); }
+    .ios-sources-head .ios-chevron-sm {
+      width: 10px; height: 10px; flex-shrink: 0;
+      border-right: 2px solid var(--ios-text3);
+      border-bottom: 2px solid var(--ios-text3);
+      transform: rotate(45deg);
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .ios-sources.open .ios-sources-head .ios-chevron-sm { transform: rotate(-135deg); }
+    .ios-sources-body {
+      display: grid; grid-template-rows: 0fr;
+      transition: grid-template-rows 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .ios-sources.open .ios-sources-body { grid-template-rows: 1fr; }
+    .ios-sources-body-inner { overflow: hidden; }
+    .ios-sources-list { list-style: none; padding: 0; margin: 0; }
+    .ios-sources-list li {
+      padding: 8px 16px; font-size: 13px; color: var(--ios-text2);
+      border-bottom: 0.5px solid var(--ios-separator); line-height: 1.4;
+    }
+    .ios-sources-list li:last-child { border-bottom: none; }
+    .ios-sources-list a { color: var(--ios-blue); text-decoration: none; }
+
+    /* ===== FOOTER ===== */
+    .ios-footer {
+      text-align: center; padding: 20px 16px 32px;
+      font-size: 12px; color: var(--ios-text3); line-height: 1.6;
+    }
+
+    /* ===== ANIMATIONS ===== */
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.5s ease, transform 0.5s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
-    /* DESKTOP */
+    /* ===== DESKTOP ===== */
     @media (min-width: 768px) {
-      .hero h1 { font-size: 3.5rem; }
-      .hero-subtitle { font-size: 1.3rem; }
-      .section { padding: 5rem 2rem; }
-      .section-header h2 { font-size: 2.2rem; }
-      .card, .step-card, .req-box { max-width: 640px; margin-left: auto; margin-right: auto; }
-      .req-grid { grid-template-columns: repeat(4, 1fr); }
-      .nav { bottom: auto; top: 0; padding: 0.5rem 1rem; border-top: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
-      .footer { padding-bottom: 2rem; }
+      .hero h1 { font-size: 56px; }
+      .ios-group, .ios-plan-card, .ios-req, .ios-banner, .ios-key, .ios-sources {
+        max-width: 640px; margin-left: auto; margin-right: auto;
+      }
+      .ios-section { max-width: 672px; margin-left: auto; margin-right: auto; }
+      .ios-footer { padding-bottom: 32px; }
+      .ios-tabs { display: none; }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav class="nav" id="navbar">
-    <div class="nav-inner">
-      <a href="#peligros"><span class="nav-icon">&#9888;</span>Peligros</a>
-      <a href="#promesas"><span class="nav-icon">&#10024;</span>Promesas</a>
-      <a href="#plan"><span class="nav-icon">&#9776;</span>El Plan</a>
-      <a href="#fuentes"><span class="nav-icon">&#128218;</span>Fuentes</a>
+  <!-- iOS TAB BAR -->
+  <nav class="ios-tabs" id="tabs">
+    <div class="ios-tabs-inner">
+      <a href="#peligros"><span class="ico">&#9888;&#65039;</span>Peligros</a>
+      <a href="#promesas"><span class="ico">&#10004;&#65039;</span>Promesas</a>
+      <a href="#plan"><span class="ico">&#128221;</span>El Plan</a>
+      <a href="#fuentes"><span class="ico">&#128218;</span>Fuentes</a>
     </div>
   </nav>
 
   <!-- HERO -->
   <section class="hero" id="inicio">
-    <div class="hero-content">
-      <div class="hero-badge">Basado en ciencia</div>
-      <h1>Alimenta<br>Su <span>Futuro</span></h1>
-      <p class="hero-subtitle">Lo que tus hijos comen entre los 2 y los 8 años construye el cerebro, los huesos y las defensas que los acompañarán toda la vida.</p>
-      <p class="hero-meta">Respaldado por más de 50 estudios en The Lancet, JAMA y Nature.</p>
-      <div class="hero-cta">
-        <a href="#peligros" class="btn btn-primary">Ver los hechos</a>
-        <a href="#plan" class="btn btn-ghost">Ir al plan de acción &darr;</a>
-      </div>
-    </div>
-    <div class="scroll-indicator"><svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5"/></svg></div>
+    <div class="hero-pill"><span class="dot"></span>Basado en ciencia</div>
+    <h1>Alimenta<br>Su <em>Futuro</em></h1>
+    <p class="hero-sub">Lo que tus hijos comen entre los 2 y los 8 años construye el cerebro, los huesos y las defensas que los acompañarán toda la vida.</p>
+    <p class="hero-meta">+50 estudios en The Lancet, JAMA y Nature.</p>
+    <a href="#peligros" class="hero-btn">Ver los hechos</a>
+    <a href="#plan" class="hero-link">Ir al plan de acción ↓</a>
+    <div class="scroll-hint"></div>
   </section>
 
-  <!-- INTRO -->
-  <section class="intro">
-    <div class="intro-content reveal">
-      <blockquote class="intro-quote">
+  <div class="content">
+
+    <!-- INTRO -->
+    <div class="ios-section reveal" style="padding-top:28px;">
+      <p style="font-size:15px;color:var(--ios-text2);line-height:1.5;border-left:3px solid var(--ios-orange);padding-left:14px;">
         Entre los 4 y los 7 años, el cuerpo construye el cerebro, los huesos y el sistema inmunológico que acompañarán a un niño toda la vida. Lo que come durante esta ventana no es un detalle: es el cimiento.
-      </blockquote>
-      <p class="intro-text"><strong>5 peligros. 5 promesas. 1 plan.</strong> Todo respaldado por investigación publicada en revistas científicas revisadas por pares.</p>
-    </div>
-  </section>
-
-  <!-- ==================== LOS 5 PELIGROS ==================== -->
-  <section class="dangers section" id="peligros">
-    <div class="section-header reveal">
-      <span class="section-number">Parte 1</span>
-      <h2>Los 5 Peligros</h2>
-      <p>Lo que la ciencia documenta cuando un niño no recibe la nutrición que necesita.</p>
+      </p>
     </div>
 
-    <!-- P1 -->
-    <div class="card danger-card reveal">
-      <div class="card-number">Peligro 01</div>
-      <h3 class="card-title">Daño cerebral permanente</h3>
-      <div class="stat-highlight">&minus;15 puntos de IQ. Irreversible.</div>
-      <ul class="card-list">
-        <li>La desnutrición es el <strong>único factor ambiental</strong> que daña directamente la mielinización del cerebro (el "cableado" que permite pensar con rapidez).</li>
-        <li>Niños desnutridos tienen <strong>9 veces más</strong> probabilidad de discapacidad intelectual. El daño medido a los 3 años seguía intacto a los 11. <em>Nunca se recuperó.</em></li>
-        <li>Resonancias magnéticas muestran <strong>cerebros más pequeños</strong> en niños desnutridos. El 80% presentó retrasos en el desarrollo.</li>
-      </ul>
-      <p class="card-source">JAMA Pediatrics; Galler et al., <em>Nutritional Neuroscience</em> 2012; <em>Pediatric Neurology</em> 2023. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3796166/" target="_blank" rel="noopener">Ver estudio</a></p>
+    <!-- ========== LOS 5 PELIGROS ========== -->
+    <div class="ios-section reveal" id="peligros">
+      <div class="ios-section-title">Los 5 Peligros</div>
+      <div class="ios-section-sub">Lo que la ciencia documenta cuando un niño no recibe la nutrición que necesita.</div>
     </div>
 
-    <!-- P2 -->
-    <div class="card danger-card reveal">
-      <div class="card-number">Peligro 02</div>
-      <h3 class="card-title">Sistema inmune destruido</h3>
-      <div class="stat-highlight">11x más vulnerables a infecciones mortales</div>
-      <ul class="card-list">
-        <li>Sin proteína, el cuerpo no produce anticuerpos. Los investigadores lo llaman <strong>"inmunodeficiencia adquirida por nutrición."</strong></li>
-        <li>Un niño desnutrido con diarrea tiene <strong>4 veces más</strong> riesgo de morir que uno bien alimentado.</li>
-        <li>Los menores de 5 años son <strong>3 veces más propensos</strong> a ser hospitalizados por intoxicación alimentaria que los adultos.</li>
-      </ul>
-      <p class="card-source">UNICEF / <em>PLOS ONE</em> 2014; <em>Frontiers in Pediatrics</em> 2025; CDC. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4143239/" target="_blank" rel="noopener">Ver estudio</a></p>
-    </div>
-
-    <!-- P3 -->
-    <div class="card danger-card reveal">
-      <div class="card-number">Peligro 03</div>
-      <h3 class="card-title">Crecimiento detenido</h3>
-      <div class="stat-highlight">4x más riesgo de estatura baja sin proteína adecuada</div>
-      <ul class="card-list">
-        <li>El "stunting" no es solo ser chaparrito. Es un marcador de <strong>daño sistémico</strong> que afecta todos los órganos.</li>
-        <li>Restringir la leche priva a los niños de su fuente principal de calcio. Resultado: <strong>huesos hasta 5.6% menos densos</strong> de por vida.</li>
-        <li>La restricción parental de alimentos <strong>predice trastornos alimentarios</strong> hasta 8 años después.</li>
-      </ul>
-      <p class="card-source"><em>Am. J. Clinical Nutrition</em>; PMC 2021; <em>Appetite</em> 2024. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7975963/" target="_blank" rel="noopener">Ver estudio</a></p>
-    </div>
-
-    <!-- P4 -->
-    <div class="card danger-card reveal">
-      <div class="card-number">Peligro 04</div>
-      <h3 class="card-title">Futuro con menos oportunidades</h3>
-      <div class="stat-highlight">Hasta 20% menos ingresos de por vida</div>
-      <ul class="card-list">
-        <li>Cada centímetro de estatura perdido = <strong>4 a 6% menos de ingresos</strong> en la edad adulta.</li>
-        <li>Los niños desnutridos completan <strong>4.64 años menos</strong> de escolaridad. La brecha de ingresos <em>nunca se cierra</em>.</li>
-        <li>Mayor riesgo de <strong>diabetes, enfermedad cardiovascular e hipertensión</strong> como adultos.</li>
-      </ul>
-      <p class="card-source"><em>The Lancet</em> 2008; Galler et al. 2012; <em>eClinicalMedicine</em> 2022. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3382923/" target="_blank" rel="noopener">Ver estudio</a></p>
-    </div>
-
-    <!-- P5 -->
-    <div class="card danger-card reveal">
-      <div class="card-number">Peligro 05</div>
-      <h3 class="card-title">Daño emocional duradero</h3>
-      <div class="stat-highlight">Depresión predecible en la adolescencia</div>
-      <ul class="card-list">
-        <li>La desnutrición temprana <strong>predice síntomas depresivos</strong> entre los 11 y los 17 años.</li>
-        <li>Los déficits de atención causados por desnutrición infantil <strong>persisten hasta la edad adulta media</strong>.</li>
-        <li>El Estudio de Barbados documentó <strong>alteraciones de personalidad medibles 40 años después</strong>.</li>
-      </ul>
-      <p class="card-source"><em>BMJ Nutrition</em> 2022; Galler et al. 2013; MSF. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9260807/" target="_blank" rel="noopener">Ver estudio</a></p>
-    </div>
-  </section>
-
-  <!-- TRANSITION -->
-  <div class="transition-banner reveal">
-    <h3>La buena noticia</h3>
-    <p>Casi todo lo anterior se puede prevenir o revertir. La ventana de los 4 a 7 años es una de las más responsivas. Los cambios son medibles en semanas.</p>
-  </div>
-
-  <!-- ==================== LAS 5 PROMESAS ==================== -->
-  <section class="promises section" id="promesas">
-    <div class="section-header reveal">
-      <span class="section-number">Parte 2</span>
-      <h2>Las 5 Promesas</h2>
-      <p>Lo que la ciencia demuestra cuando un niño recibe buena nutrición.</p>
-    </div>
-
-    <!-- PR1 -->
-    <div class="card promise-card reveal">
-      <div class="card-number">Promesa 01</div>
-      <h3 class="card-title">Un cerebro que alcanza su potencial</h3>
-      <div class="stat-highlight">+5.8 puntos de IQ solo con hierro</div>
-      <ul class="card-list">
-        <li>Mejora cognitiva <strong>medible en 11 semanas</strong> con micronutrientes añadidos al desayuno.</li>
-        <li>Programas de alimentación escolar mejoraron matemáticas en <strong>0.66 desviaciones estándar</strong>.</li>
-        <li>Resonancias magnéticas confirman que la dieta saludable genera <strong>diferencias estructurales visibles en el cerebro</strong>.</li>
-      </ul>
-      <p class="card-source"><em>PLOS ONE</em> 2023; <em>Nutrients</em> 2023. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10298800/" target="_blank" rel="noopener">Ver estudio</a></p>
-    </div>
-
-    <!-- PR2 -->
-    <div class="card promise-card reveal">
-      <div class="card-number">Promesa 02</div>
-      <h3 class="card-title">Defensas que funcionan</h3>
-      <div class="stat-highlight">43% menos días con fiebre</div>
-      <ul class="card-list">
-        <li>Vitamina D adecuada: <strong>17% menos días enfermos</strong> y 43% menos fiebre por infecciones respiratorias.</li>
-        <li>Zinc: fortalece linfocitos T y respuesta inmune completa. Comprobado en <strong>80 ensayos con 205,401 niños</strong>.</li>
-        <li>Menos infecciones, <strong>menos antibióticos</strong>, menos hospitalizaciones.</li>
-      </ul>
-      <p class="card-source">PMC 2023; <em>Cochrane Reviews</em> 2014. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10443358/" target="_blank" rel="noopener">Ver estudio</a></p>
-    </div>
-
-    <!-- PR3 -->
-    <div class="card promise-card reveal">
-      <div class="card-number">Promesa 03</div>
-      <h3 class="card-title">Crecimiento pleno</h3>
-      <div class="stat-highlight">Ganancia de peso visible en 7 días</div>
-      <ul class="card-list">
-        <li>Cambios en estatura <strong>medibles a las 4 semanas</strong>.</li>
-        <li>4+ porciones de leche al día = aproximadamente <strong>1 cm más de estatura</strong>.</li>
-        <li>Calcio adecuado por 2 a 3 años consecutivos = <strong>huesos más densos</strong> y menor riesgo de osteopenia.</li>
-      </ul>
-      <p class="card-source">OMS/NHS; PMC 2017; <em>Dairy Nutrition Canada</em> 2018. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6518138/" target="_blank" rel="noopener">Ver estudio</a></p>
-    </div>
-
-    <!-- PR4 -->
-    <div class="card promise-card reveal">
-      <div class="card-number">Promesa 04</div>
-      <h3 class="card-title">Más oportunidades de por vida</h3>
-      <div class="stat-highlight">46% más ingresos en la edad adulta</div>
-      <ul class="card-list">
-        <li>Estudio INCAP (Guatemala, 35 años): niños con suplemento proteico ganaron <strong>46% más</strong> como adultos. Retorno de inversión: <strong>18 a 1</strong>.</li>
-        <li>Suecia: comidas nutritivas en la primaria = <strong>3 a 6% más ingreso de por vida</strong>.</li>
-        <li>El efecto es <strong>intergeneracional</strong>: los hijos también ganan más.</li>
-      </ul>
-      <p class="card-source">Hoddinott, <em>The Lancet</em> 2008; Lundborg, <em>Review of Economic Studies</em> 2022. <a href="https://academic.oup.com/restud/article/89/2/876/6273674" target="_blank" rel="noopener">Ver estudio</a></p>
-    </div>
-
-    <!-- PR5 -->
-    <div class="card promise-card reveal">
-      <div class="card-number">Promesa 05</div>
-      <h3 class="card-title">Bienestar emocional</h3>
-      <div class="stat-highlight">35% menos trastornos alimentarios con comidas en familia</div>
-      <ul class="card-list">
-        <li>5+ porciones de frutas y verduras al día = <strong>máximo bienestar mental</strong> (9,000 niños, UEA 2022).</li>
-        <li>3+ comidas familiares por semana: <strong>mejor autoestima</strong>, mejores calificaciones, menos depresión adolescente.</li>
-        <li>La conversación en la mesa desarrolla el vocabulario <strong>más que leerles en voz alta</strong> (Harvard, 15 años).</li>
-      </ul>
-      <p class="card-source"><em>BMJ NPH</em> 2022; PMC 2012; Snow, Harvard 2006. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3387875/" target="_blank" rel="noopener">Ver estudio</a></p>
-    </div>
-  </section>
-
-  <!-- ==================== EL PLAN ==================== -->
-  <section class="plan section" id="plan">
-    <div class="section-header reveal">
-      <span class="section-number">Parte 3</span>
-      <h2>El Plan</h2>
-      <p>Un sistema que funcione solo. Sin importar qué tan ocupada esté la familia.</p>
-    </div>
-
-    <!-- REQUIREMENTS -->
-    <div class="req-box reveal">
-      <h3>Lo que necesita un niño de 4 a 8 años cada día</h3>
-      <div class="req-grid">
-        <div class="req-item"><div class="val">1,200-1,600</div><div class="lbl">Calorías</div></div>
-        <div class="req-item"><div class="val">19g</div><div class="lbl">Proteína</div></div>
-        <div class="req-item"><div class="val">1,000mg</div><div class="lbl">Calcio</div></div>
-        <div class="req-item"><div class="val">10mg</div><div class="lbl">Hierro</div></div>
+    <div class="ios-group reveal">
+      <!-- P1 -->
+      <div class="ios-card danger">
+        <div class="ios-card-head">
+          <div class="ios-card-icon">01</div>
+          <div class="ios-card-info">
+            <div class="ios-card-label">Daño cerebral permanente</div>
+            <div class="ios-card-stat">&minus;15 puntos de IQ. Irreversible.</div>
+          </div>
+          <div class="ios-chevron"></div>
+        </div>
+        <div class="ios-card-body"><div class="ios-card-body-inner"><div class="ios-card-content">
+          <ul>
+            <li>La desnutrición es el <strong>único factor ambiental</strong> que daña directamente la mielinización del cerebro (el "cableado" que permite pensar con rapidez).</li>
+            <li>Niños desnutridos tienen <strong>9 veces más</strong> probabilidad de discapacidad intelectual. El daño medido a los 3 años seguía intacto a los 11. <em>Nunca se recuperó.</em></li>
+            <li>Resonancias magnéticas muestran <strong>cerebros más pequeños</strong> en niños desnutridos. El 80% presentó retrasos en el desarrollo.</li>
+          </ul>
+          <div class="src">JAMA Pediatrics; Galler et al., <em>Nutritional Neuroscience</em> 2012. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3796166/" target="_blank" rel="noopener">Ver estudio →</a></div>
+        </div></div></div>
       </div>
-      <p class="req-note"><strong>19g de proteína es muy poco.</strong> Tres huevos. O dos vasos y medio de leche. O un yogurt griego. No es difícil; solo tiene que estar disponible.</p>
+      <!-- P2 -->
+      <div class="ios-card danger">
+        <div class="ios-card-head">
+          <div class="ios-card-icon">02</div>
+          <div class="ios-card-info">
+            <div class="ios-card-label">Sistema inmune destruido</div>
+            <div class="ios-card-stat">11x más vulnerables a infecciones</div>
+          </div>
+          <div class="ios-chevron"></div>
+        </div>
+        <div class="ios-card-body"><div class="ios-card-body-inner"><div class="ios-card-content">
+          <ul>
+            <li>Sin proteína, el cuerpo no produce anticuerpos. Los investigadores lo llaman <strong>"inmunodeficiencia adquirida por nutrición."</strong></li>
+            <li>Un niño desnutrido con diarrea tiene <strong>4 veces más</strong> riesgo de morir que uno bien alimentado.</li>
+            <li>Los menores de 5 años son <strong>3 veces más propensos</strong> a ser hospitalizados por intoxicación alimentaria que los adultos.</li>
+          </ul>
+          <div class="src">UNICEF / <em>PLOS ONE</em> 2014; CDC. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4143239/" target="_blank" rel="noopener">Ver estudio →</a></div>
+        </div></div></div>
+      </div>
+      <!-- P3 -->
+      <div class="ios-card danger">
+        <div class="ios-card-head">
+          <div class="ios-card-icon">03</div>
+          <div class="ios-card-info">
+            <div class="ios-card-label">Crecimiento detenido</div>
+            <div class="ios-card-stat">4x más riesgo de estatura baja</div>
+          </div>
+          <div class="ios-chevron"></div>
+        </div>
+        <div class="ios-card-body"><div class="ios-card-body-inner"><div class="ios-card-content">
+          <ul>
+            <li>El "stunting" no es solo ser chaparrito. Es un marcador de <strong>daño sistémico</strong> que afecta todos los órganos.</li>
+            <li>Restringir la leche priva a los niños de su fuente principal de calcio. Resultado: <strong>huesos hasta 5.6% menos densos</strong> de por vida.</li>
+            <li>La restricción parental de alimentos <strong>predice trastornos alimentarios</strong> hasta 8 años después.</li>
+          </ul>
+          <div class="src"><em>Am. J. Clinical Nutrition</em>; PMC 2021. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7975963/" target="_blank" rel="noopener">Ver estudio →</a></div>
+        </div></div></div>
+      </div>
+      <!-- P4 -->
+      <div class="ios-card danger">
+        <div class="ios-card-head">
+          <div class="ios-card-icon">04</div>
+          <div class="ios-card-info">
+            <div class="ios-card-label">Futuro con menos oportunidades</div>
+            <div class="ios-card-stat">Hasta 20% menos ingresos de por vida</div>
+          </div>
+          <div class="ios-chevron"></div>
+        </div>
+        <div class="ios-card-body"><div class="ios-card-body-inner"><div class="ios-card-content">
+          <ul>
+            <li>Cada centímetro de estatura perdido = <strong>4 a 6% menos de ingresos</strong> en la edad adulta.</li>
+            <li>Los niños desnutridos completan <strong>4.64 años menos</strong> de escolaridad. La brecha <em>nunca se cierra</em>.</li>
+            <li>Mayor riesgo de <strong>diabetes, enfermedad cardiovascular e hipertensión</strong> como adultos.</li>
+          </ul>
+          <div class="src"><em>The Lancet</em> 2008; Galler et al. 2012. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3382923/" target="_blank" rel="noopener">Ver estudio →</a></div>
+        </div></div></div>
+      </div>
+      <!-- P5 -->
+      <div class="ios-card danger">
+        <div class="ios-card-head">
+          <div class="ios-card-icon">05</div>
+          <div class="ios-card-info">
+            <div class="ios-card-label">Daño emocional duradero</div>
+            <div class="ios-card-stat">Depresión predecible en la adolescencia</div>
+          </div>
+          <div class="ios-chevron"></div>
+        </div>
+        <div class="ios-card-body"><div class="ios-card-body-inner"><div class="ios-card-content">
+          <ul>
+            <li>La desnutrición temprana <strong>predice síntomas depresivos</strong> entre los 11 y los 17 años.</li>
+            <li>Los déficits de atención causados por desnutrición infantil <strong>persisten hasta la edad adulta media</strong>.</li>
+            <li>El Estudio de Barbados documentó <strong>alteraciones de personalidad medibles 40 años después</strong>.</li>
+          </ul>
+          <div class="src"><em>BMJ Nutrition</em> 2022; Galler et al. 2013. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9260807/" target="_blank" rel="noopener">Ver estudio →</a></div>
+        </div></div></div>
+      </div>
     </div>
 
-    <!-- STEP 1 -->
-    <div class="step-card reveal">
-      <span class="step-badge">Mañana</span>
-      <h4>Ganancias inmediatas. Sin cocinar.</h4>
-      <ul class="step-list">
-        <li>Leche en cada comida<span class="sub">2 vasos cubren 60% del calcio diario. Estimula crecimiento óseo (IGF-1).</span></li>
-        <li>Un huevo por niño al día<span class="sub">En Ecuador, un huevo diario eliminó la deficiencia de B12 y mejoró el crecimiento.</span></li>
-        <li>Cereal fortificado + leche para desayuno<span class="sub">Cero cocina. Cubre hierro, vitaminas B, calcio y proteína.</span></li>
+    <!-- TRANSITION -->
+    <div class="ios-banner reveal">
+      <h3>La buena noticia</h3>
+      <p>Casi todo lo anterior se puede prevenir o revertir. La ventana de los 4 a 7 años es una de las más responsivas. Los cambios son medibles en semanas.</p>
+    </div>
+
+    <!-- ========== LAS 5 PROMESAS ========== -->
+    <div class="ios-section reveal" id="promesas">
+      <div class="ios-section-title">Las 5 Promesas</div>
+      <div class="ios-section-sub">Lo que la ciencia demuestra cuando un niño recibe buena nutrición.</div>
+    </div>
+
+    <div class="ios-group reveal">
+      <!-- PR1 -->
+      <div class="ios-card promise">
+        <div class="ios-card-head">
+          <div class="ios-card-icon">01</div>
+          <div class="ios-card-info">
+            <div class="ios-card-label">Cerebro en su máximo potencial</div>
+            <div class="ios-card-stat">+5.8 puntos de IQ solo con hierro</div>
+          </div>
+          <div class="ios-chevron"></div>
+        </div>
+        <div class="ios-card-body"><div class="ios-card-body-inner"><div class="ios-card-content">
+          <ul>
+            <li>Mejora cognitiva <strong>medible en 11 semanas</strong> con micronutrientes añadidos al desayuno.</li>
+            <li>Programas de alimentación escolar mejoraron matemáticas en <strong>0.66 desviaciones estándar</strong>.</li>
+            <li>Resonancias magnéticas confirman <strong>diferencias estructurales visibles en el cerebro</strong> con dieta saludable.</li>
+          </ul>
+          <div class="src"><em>PLOS ONE</em> 2023; <em>Nutrients</em> 2023. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10298800/" target="_blank" rel="noopener">Ver estudio →</a></div>
+        </div></div></div>
+      </div>
+      <!-- PR2 -->
+      <div class="ios-card promise">
+        <div class="ios-card-head">
+          <div class="ios-card-icon">02</div>
+          <div class="ios-card-info">
+            <div class="ios-card-label">Defensas que funcionan</div>
+            <div class="ios-card-stat">43% menos días con fiebre</div>
+          </div>
+          <div class="ios-chevron"></div>
+        </div>
+        <div class="ios-card-body"><div class="ios-card-body-inner"><div class="ios-card-content">
+          <ul>
+            <li>Vitamina D adecuada: <strong>17% menos días enfermos</strong> y 43% menos fiebre por infecciones respiratorias.</li>
+            <li>Zinc: fortalece linfocitos T y respuesta inmune completa. Comprobado en <strong>80 ensayos, 205,401 niños</strong>.</li>
+            <li>Menos infecciones, <strong>menos antibióticos</strong>, menos hospitalizaciones.</li>
+          </ul>
+          <div class="src">PMC 2023; <em>Cochrane Reviews</em> 2014. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10443358/" target="_blank" rel="noopener">Ver estudio →</a></div>
+        </div></div></div>
+      </div>
+      <!-- PR3 -->
+      <div class="ios-card promise">
+        <div class="ios-card-head">
+          <div class="ios-card-icon">03</div>
+          <div class="ios-card-info">
+            <div class="ios-card-label">Crecimiento pleno</div>
+            <div class="ios-card-stat">Ganancia de peso visible en 7 días</div>
+          </div>
+          <div class="ios-chevron"></div>
+        </div>
+        <div class="ios-card-body"><div class="ios-card-body-inner"><div class="ios-card-content">
+          <ul>
+            <li>Cambios en estatura <strong>medibles a las 4 semanas</strong>.</li>
+            <li>4+ porciones de leche al día = aproximadamente <strong>1 cm más de estatura</strong>.</li>
+            <li>Calcio adecuado por 2 a 3 años consecutivos = <strong>huesos más densos</strong> y menor riesgo de osteopenia.</li>
+          </ul>
+          <div class="src">OMS/NHS; PMC 2017. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6518138/" target="_blank" rel="noopener">Ver estudio →</a></div>
+        </div></div></div>
+      </div>
+      <!-- PR4 -->
+      <div class="ios-card promise">
+        <div class="ios-card-head">
+          <div class="ios-card-icon">04</div>
+          <div class="ios-card-info">
+            <div class="ios-card-label">Más oportunidades de por vida</div>
+            <div class="ios-card-stat">46% más ingresos en la edad adulta</div>
+          </div>
+          <div class="ios-chevron"></div>
+        </div>
+        <div class="ios-card-body"><div class="ios-card-body-inner"><div class="ios-card-content">
+          <ul>
+            <li>Estudio INCAP (Guatemala, 35 años): niños con suplemento proteico ganaron <strong>46% más</strong> como adultos. Retorno: <strong>18 a 1</strong>.</li>
+            <li>Suecia: comidas nutritivas en primaria = <strong>3 a 6% más ingreso de por vida</strong>.</li>
+            <li>El efecto es <strong>intergeneracional</strong>: los hijos también ganan más.</li>
+          </ul>
+          <div class="src">Hoddinott, <em>The Lancet</em> 2008; Lundborg 2022. <a href="https://academic.oup.com/restud/article/89/2/876/6273674" target="_blank" rel="noopener">Ver estudio →</a></div>
+        </div></div></div>
+      </div>
+      <!-- PR5 -->
+      <div class="ios-card promise">
+        <div class="ios-card-head">
+          <div class="ios-card-icon">05</div>
+          <div class="ios-card-info">
+            <div class="ios-card-label">Bienestar emocional</div>
+            <div class="ios-card-stat">35% menos trastornos alimentarios</div>
+          </div>
+          <div class="ios-chevron"></div>
+        </div>
+        <div class="ios-card-body"><div class="ios-card-body-inner"><div class="ios-card-content">
+          <ul>
+            <li>5+ porciones de frutas y verduras al día = <strong>máximo bienestar mental</strong> (9,000 niños, UEA 2022).</li>
+            <li>3+ comidas familiares por semana: <strong>mejor autoestima</strong>, mejores calificaciones, menos depresión adolescente.</li>
+            <li>La conversación en la mesa desarrolla el vocabulario <strong>más que leerles en voz alta</strong> (Harvard, 15 años).</li>
+          </ul>
+          <div class="src"><em>BMJ NPH</em> 2022; PMC 2012; Snow, Harvard 2006. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3387875/" target="_blank" rel="noopener">Ver estudio →</a></div>
+        </div></div></div>
+      </div>
+    </div>
+
+    <!-- ========== EL PLAN ========== -->
+    <div class="ios-section reveal plan-section" id="plan">
+      <div class="ios-section-title">El Plan</div>
+      <div class="ios-section-sub">Un sistema que funcione solo. Sin importar qué tan ocupada esté la familia.</div>
+    </div>
+
+    <!-- Requirements -->
+    <div class="ios-req reveal">
+      <h3>Lo que necesita un niño de 4 a 8 años cada día</h3>
+      <div class="ios-req-grid">
+        <div class="ios-req-item"><div class="ios-req-val">1,200-1,600</div><div class="ios-req-lbl">Calorías</div></div>
+        <div class="ios-req-item"><div class="ios-req-val">19g</div><div class="ios-req-lbl">Proteína</div></div>
+        <div class="ios-req-item"><div class="ios-req-val">1,000mg</div><div class="ios-req-lbl">Calcio</div></div>
+        <div class="ios-req-item"><div class="ios-req-val">10mg</div><div class="ios-req-lbl">Hierro</div></div>
+      </div>
+      <div class="ios-plan-note" style="margin:10px 0 0;"><strong>19g de proteína es muy poco.</strong> Tres huevos. O dos vasos y medio de leche. O un yogurt griego. No es difícil; solo tiene que estar disponible.</div>
+    </div>
+
+    <!-- Step 1 -->
+    <div class="ios-plan-card reveal">
+      <div class="ios-plan-head"><span class="ios-plan-badge">Mañana</span></div>
+      <div class="ios-plan-title">Ganancias inmediatas. Sin cocinar.</div>
+      <ul class="ios-plan-list">
+        <li><span class="check">✓</span><div class="item-text">Leche en cada comida<span class="item-sub">2 vasos cubren 60% del calcio diario. Estimula crecimiento óseo (IGF-1).</span></div></li>
+        <li><span class="check">✓</span><div class="item-text">Un huevo por niño al día<span class="item-sub">En Ecuador, un huevo diario eliminó la deficiencia de B12 y mejoró el crecimiento.</span></div></li>
+        <li><span class="check">✓</span><div class="item-text">Cereal fortificado + leche para desayuno<span class="item-sub">Cero cocina. Cubre hierro, vitaminas B, calcio y proteína.</span></div></li>
       </ul>
     </div>
 
-    <!-- STEP 2 -->
-    <div class="step-card reveal">
-      <span class="step-badge">Esta semana</span>
-      <h4>La despensa que nunca falla</h4>
-      <ul class="step-list">
-        <li>Refri: leche, huevos, queso, yogurt, fruta lavada y cortada<span class="sub">La fruta lista para comer se consume 3x más que la fruta entera.</span></li>
-        <li>Alacena: cereal, avena, tortillas, frijoles, atún, pasta<span class="sub">Frijoles + tortilla = proteína completa. Nutrición mexicana de primera.</span></li>
-        <li>Congelador: pollo en porciones, verduras congeladas<span class="sub">Mismo valor nutricional que las frescas. Duran meses.</span></li>
-        <li>Snacks accesibles: nueces, plátanos, barras, zanahoria<span class="sub">Si tiene hambre, que lo fácil sea lo nutritivo.</span></li>
+    <!-- Step 2 -->
+    <div class="ios-plan-card reveal">
+      <div class="ios-plan-head"><span class="ios-plan-badge">Esta semana</span></div>
+      <div class="ios-plan-title">La despensa que nunca falla</div>
+      <ul class="ios-plan-list">
+        <li><span class="check">✓</span><div class="item-text">Refri: leche, huevos, queso, yogurt, fruta lavada<span class="item-sub">La fruta lista para comer se consume 3x más que la fruta entera.</span></div></li>
+        <li><span class="check">✓</span><div class="item-text">Alacena: cereal, avena, tortillas, frijoles, atún, pasta<span class="item-sub">Frijoles + tortilla = proteína completa. Nutrición mexicana de primera.</span></div></li>
+        <li><span class="check">✓</span><div class="item-text">Congelador: pollo en porciones, verduras congeladas<span class="item-sub">Mismo valor nutricional que las frescas. Duran meses.</span></div></li>
+        <li><span class="check">✓</span><div class="item-text">Snacks accesibles: nueces, plátanos, barras, zanahoria<span class="item-sub">Si tiene hambre, que lo fácil sea lo nutritivo.</span></div></li>
       </ul>
-      <p class="req-note"><strong>~$1,000 MXN/semana.</strong> Menos que pedir comida por app dos veces.</p>
+      <div class="ios-plan-note"><strong>~$1,000 MXN/semana.</strong> Menos que pedir comida por app dos veces.</div>
     </div>
 
-    <!-- STEP 3 -->
-    <div class="step-card reveal">
-      <span class="step-badge">Este mes</span>
-      <h4>El sistema que funciona solo</h4>
-      <ul class="step-list">
-        <li>Cocinera 3 días por semana<span class="sub">Culturalmente normal en México. ~$2,500 a $3,500 MXN/semana. Inversión en salud familiar.</span></li>
-        <li>Alternativa: servicio de comida semanal<span class="sub">Come Bien, Nurish, u opciones locales. Elimina planeación y compras.</span></li>
-        <li>Mínimo 3 comidas en familia por semana<span class="sub">No tienen que ser elaboradas. Sentarse juntos ya genera los beneficios.</span></li>
-        <li>Horarios fijos de comida<span class="sub">La estructura reduce la ansiedad infantil y mejora la digestión.</span></li>
+    <!-- Step 3 -->
+    <div class="ios-plan-card reveal">
+      <div class="ios-plan-head"><span class="ios-plan-badge">Este mes</span></div>
+      <div class="ios-plan-title">El sistema que funciona solo</div>
+      <ul class="ios-plan-list">
+        <li><span class="check">✓</span><div class="item-text">Cocinera 3 días por semana<span class="item-sub">Culturalmente normal en México. ~$2,500 a $3,500 MXN/semana.</span></div></li>
+        <li><span class="check">✓</span><div class="item-text">Alternativa: servicio de comida semanal<span class="item-sub">Come Bien, Nurish, u opciones locales. Elimina planeación y compras.</span></div></li>
+        <li><span class="check">✓</span><div class="item-text">Mínimo 3 comidas en familia por semana<span class="item-sub">Sentarse juntos ya genera los beneficios documentados.</span></div></li>
+        <li><span class="check">✓</span><div class="item-text">Horarios fijos de comida<span class="item-sub">La estructura reduce la ansiedad infantil y mejora la digestión.</span></div></li>
       </ul>
     </div>
 
-    <!-- STEP 4 -->
-    <div class="step-card reveal">
-      <span class="step-badge">Este trimestre</span>
-      <h4>Seguimiento profesional</h4>
-      <ul class="step-list">
-        <li>Cita con pediatra nutriólogo<span class="sub">Identificar deficiencias específicas. Recomendaciones personalizadas.</span></li>
-        <li>Exámenes de sangre básicos<span class="sub">Biometría hemática, hierro sérico, ferritina, vitamina D, zinc.</span></li>
-        <li>Considerar apoyo emocional para los padres<span class="sub">El agotamiento y la falta de estructura pueden estar conectados. Buscar apoyo es inteligencia.</span></li>
+    <!-- Step 4 -->
+    <div class="ios-plan-card reveal">
+      <div class="ios-plan-head"><span class="ios-plan-badge">Este trimestre</span></div>
+      <div class="ios-plan-title">Seguimiento profesional</div>
+      <ul class="ios-plan-list">
+        <li><span class="check">✓</span><div class="item-text">Cita con pediatra nutriólogo<span class="item-sub">Identificar deficiencias específicas. Recomendaciones personalizadas.</span></div></li>
+        <li><span class="check">✓</span><div class="item-text">Exámenes de sangre básicos<span class="item-sub">Biometría hemática, hierro sérico, ferritina, vitamina D, zinc.</span></div></li>
+        <li><span class="check">✓</span><div class="item-text">Considerar apoyo emocional para los padres<span class="item-sub">El agotamiento y la falta de estructura pueden estar conectados.</span></div></li>
       </ul>
     </div>
-  </section>
 
-  <!-- KEY MESSAGE -->
-  <div class="key-msg reveal">
-    <h3>Cada día cuenta.<br>La ventana está abierta.<br>El momento es ahora.</h3>
-    <p>El primer paso: <span class="hl">leche, huevos y cereal mañana por la mañana.</span></p>
-    <p>Ganancia de peso en 7 días. Mejora cognitiva en 11 semanas. Densidad ósea en meses.</p>
-    <p>No se trata de ser perfectos. Se trata de que <span class="hl">lo básico esté resuelto</span>.</p>
-  </div>
+    <!-- KEY MESSAGE -->
+    <div class="ios-key reveal">
+      <h3>Cada día cuenta.<br>La ventana está abierta.<br>El momento es ahora.</h3>
+      <p>El primer paso: <span class="hl">leche, huevos y cereal mañana por la mañana.</span></p>
+      <p>Ganancia de peso en 7 días. Mejora cognitiva en 11 semanas. Densidad ósea en meses.</p>
+      <p>No se trata de ser perfectos. Se trata de que <span class="hl">lo básico esté resuelto</span>.</p>
+    </div>
 
-  <!-- SOURCES -->
-  <section class="sources section" id="fuentes">
-    <h2>Fuentes Científicas</h2>
-    <ol class="src-list">
-      <li>Liu et al. "Malnutrition at Age 3 and Cognitive Ability at Age 11." <em>JAMA Pediatrics</em>. <a href="https://jamanetwork.com/journals/jamapediatrics/fullarticle/481347" target="_blank" rel="noopener">Enlace</a></li>
-      <li>Galler et al. "IQ and Intellectual Disability: 40-Year Study." <em>Nutritional Neuroscience</em> 2012. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3796166/" target="_blank" rel="noopener">PMC</a></li>
-      <li>Galler et al. "Socioeconomic Outcomes: 40-Year Study." <em>Pediatrics</em> 2012. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3382923/" target="_blank" rel="noopener">PMC</a></li>
-      <li>Galler et al. "Malnutrition and Personality at Age 40." <em>JCPP</em> 2013. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3686988/" target="_blank" rel="noopener">PMC</a></li>
-      <li>"Brain MRI in Malnourished Children." <em>Pediatric Neurology</em> 2023. <a href="https://www.sciencedirect.com/science/article/pii/S0887899423002783" target="_blank" rel="noopener">ScienceDirect</a></li>
-      <li>"Immune System in Children with Malnutrition." <em>PLOS ONE</em> 2014. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4143239/" target="_blank" rel="noopener">PMC</a></li>
-      <li>"Malnutrition and Immune System." <em>Nutrients</em> 2024. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10780435/" target="_blank" rel="noopener">PMC</a></li>
-      <li>"Nutritional Stunting: Consequences." <em>Nutrients</em> / PMC 2021. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7975963/" target="_blank" rel="noopener">PMC</a></li>
-      <li>Hoddinott et al. "Nutrition and Economic Productivity." <em>The Lancet</em> 2008. <a href="https://www.thelancet.com/journals/lancet/article/PIIS0140673608602056/abstract" target="_blank" rel="noopener">Lancet</a></li>
-      <li>"Childhood Stunting Costs." <em>eClinicalMedicine</em> 2022. <a href="https://www.thelancet.com/journals/eclinm/article/PIIS2589-5370(22)00050-5/fulltext" target="_blank" rel="noopener">Lancet</a></li>
-      <li>Lundborg et al. "Long-Term Effects of Childhood Nutrition." <em>Review of Economic Studies</em> 2022. <a href="https://academic.oup.com/restud/article/89/2/876/6273674" target="_blank" rel="noopener">Oxford</a></li>
-      <li>"Iron Supplementation and Cognitive Development." <em>PLOS ONE</em> 2023. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10298800/" target="_blank" rel="noopener">PMC</a></li>
-      <li>"Vitamin D and Respiratory Infections in Children." PMC 2023. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10443358/" target="_blank" rel="noopener">PMC</a></li>
-      <li>"Zinc and Immune System in Children." <em>Cochrane</em> 2014. <a href="https://www.sciencedaily.com/releases/2014/05/140514205714.htm" target="_blank" rel="noopener">ScienceDaily</a></li>
-      <li>"Dairy, Height and Bone Mineral Content." PMC 2019. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6518138/" target="_blank" rel="noopener">PMC</a></li>
-      <li>"Family Meals and Nutritional Health." <em>Pediatrics</em> / PMC 2012. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3387875/" target="_blank" rel="noopener">PMC</a></li>
-      <li>"Childhood Malnutrition Predicts Depression." <em>BMJ NPH</em> 2022. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9260807/" target="_blank" rel="noopener">PMC</a></li>
-      <li>"Restrictive Feeding and Dietary Intake." <em>Appetite</em> 2024. <a href="https://www.sciencedirect.com/science/article/pii/S0195666324003118" target="_blank" rel="noopener">ScienceDirect</a></li>
-      <li>Snow. "Mealtime Talk and Literacy." Harvard 2006. <a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/cd.155" target="_blank" rel="noopener">Wiley</a></li>
-      <li>CDC. "Children Under Five: Food Poisoning Risk." <a href="https://www.foodsafety.gov/people-at-risk/children-under-five" target="_blank" rel="noopener">FoodSafety.gov</a></li>
-    </ol>
-  </section>
+    <!-- SOURCES -->
+    <div class="ios-section" id="fuentes">
+      <div class="ios-section-title" style="font-size:22px;">Fuentes</div>
+    </div>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <p>Alimenta Su Futuro &middot; 2026</p>
-    <p>Creado con rigor científico y amor por la familia.</p>
-    <p>Esta guía es informativa. Consulta a un profesional de la salud para decisiones médicas.</p>
-  </footer>
+    <div class="ios-sources">
+      <div class="ios-sources-head">
+        <span>20 estudios científicos</span>
+        <span class="ios-chevron-sm"></span>
+      </div>
+      <div class="ios-sources-body"><div class="ios-sources-body-inner">
+        <ol class="ios-sources-list">
+          <li>Liu et al. "Malnutrition at Age 3 and Cognitive Ability at Age 11." <em>JAMA Pediatrics</em>. <a href="https://jamanetwork.com/journals/jamapediatrics/fullarticle/481347" target="_blank" rel="noopener">Enlace</a></li>
+          <li>Galler et al. "IQ and Intellectual Disability: 40-Year Study." <em>Nutritional Neuroscience</em> 2012. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3796166/" target="_blank" rel="noopener">PMC</a></li>
+          <li>Galler et al. "Socioeconomic Outcomes: 40-Year Study." <em>Pediatrics</em> 2012. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3382923/" target="_blank" rel="noopener">PMC</a></li>
+          <li>Galler et al. "Malnutrition and Personality at Age 40." <em>JCPP</em> 2013. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3686988/" target="_blank" rel="noopener">PMC</a></li>
+          <li>"Brain MRI in Malnourished Children." <em>Pediatric Neurology</em> 2023. <a href="https://www.sciencedirect.com/science/article/pii/S0887899423002783" target="_blank" rel="noopener">ScienceDirect</a></li>
+          <li>"Immune System in Children with Malnutrition." <em>PLOS ONE</em> 2014. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4143239/" target="_blank" rel="noopener">PMC</a></li>
+          <li>"Malnutrition and Immune System." <em>Nutrients</em> 2024. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10780435/" target="_blank" rel="noopener">PMC</a></li>
+          <li>"Nutritional Stunting: Consequences." PMC 2021. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7975963/" target="_blank" rel="noopener">PMC</a></li>
+          <li>Hoddinott et al. "Nutrition and Economic Productivity." <em>The Lancet</em> 2008. <a href="https://www.thelancet.com/journals/lancet/article/PIIS0140673608602056/abstract" target="_blank" rel="noopener">Lancet</a></li>
+          <li>"Childhood Stunting Costs." <em>eClinicalMedicine</em> 2022. <a href="https://www.thelancet.com/journals/eclinm/article/PIIS2589-5370(22)00050-5/fulltext" target="_blank" rel="noopener">Lancet</a></li>
+          <li>Lundborg et al. "Long-Term Effects of Childhood Nutrition." <em>Review of Economic Studies</em> 2022. <a href="https://academic.oup.com/restud/article/89/2/876/6273674" target="_blank" rel="noopener">Oxford</a></li>
+          <li>"Iron Supplementation and Cognitive Development." <em>PLOS ONE</em> 2023. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10298800/" target="_blank" rel="noopener">PMC</a></li>
+          <li>"Vitamin D and Respiratory Infections." PMC 2023. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10443358/" target="_blank" rel="noopener">PMC</a></li>
+          <li>"Zinc and Immune System in Children." <em>Cochrane</em> 2014. <a href="https://www.sciencedaily.com/releases/2014/05/140514205714.htm" target="_blank" rel="noopener">ScienceDaily</a></li>
+          <li>"Dairy, Height and Bone Mineral Content." PMC 2019. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6518138/" target="_blank" rel="noopener">PMC</a></li>
+          <li>"Family Meals and Nutritional Health." <em>Pediatrics</em> / PMC 2012. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3387875/" target="_blank" rel="noopener">PMC</a></li>
+          <li>"Childhood Malnutrition Predicts Depression." <em>BMJ NPH</em> 2022. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9260807/" target="_blank" rel="noopener">PMC</a></li>
+          <li>"Restrictive Feeding and Dietary Intake." <em>Appetite</em> 2024. <a href="https://www.sciencedirect.com/science/article/pii/S0195666324003118" target="_blank" rel="noopener">ScienceDirect</a></li>
+          <li>Snow. "Mealtime Talk and Literacy." Harvard 2006. <a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/cd.155" target="_blank" rel="noopener">Wiley</a></li>
+          <li>CDC. "Children Under Five: Food Poisoning Risk." <a href="https://www.foodsafety.gov/people-at-risk/children-under-five" target="_blank" rel="noopener">FoodSafety.gov</a></li>
+        </ol>
+      </div></div>
+    </div>
 
-  <!-- JS -->
+    <!-- FOOTER -->
+    <footer class="ios-footer">
+      <p>Alimenta Su Futuro · 2026</p>
+      <p>Creado con rigor científico y amor por la familia.</p>
+      <p>Guía informativa. Consulta a un profesional de la salud.</p>
+    </footer>
+
+  </div><!-- /content -->
+
   <script>
     // Collapsible cards
-    document.querySelectorAll('.card').forEach(card => {
-      const num = card.querySelector('.card-number');
-      const title = card.querySelector('.card-title');
-      const stat = card.querySelector('.stat-highlight');
-      const list = card.querySelector('.card-list');
-      const src = card.querySelector('.card-source');
-      if (!list) return;
-
-      const head = document.createElement('div');
-      head.className = 'card-head';
-      const toggle = document.createElement('span');
-      toggle.className = 'card-toggle';
-      toggle.textContent = '+';
-      card.prepend(head);
-      head.appendChild(num);
-      head.appendChild(title);
-      if (stat) head.appendChild(stat);
-      head.appendChild(toggle);
-
-      const body = document.createElement('div');
-      body.className = 'card-body';
-      const inner = document.createElement('div');
-      inner.appendChild(list);
-      if (src) inner.appendChild(src);
-      body.appendChild(inner);
-      card.appendChild(body);
-
-      head.addEventListener('click', () => card.classList.toggle('open'));
+    document.querySelectorAll('.ios-card-head').forEach(head => {
+      head.addEventListener('click', () => head.parentElement.classList.toggle('open'));
     });
 
+    // Collapsible sources
+    document.querySelector('.ios-sources-head').addEventListener('click', () => {
+      document.querySelector('.ios-sources').classList.toggle('open');
+    });
+
+    // Scroll reveal
     const ro = new IntersectionObserver(e => {
       e.forEach(x => { if (x.isIntersecting) x.target.classList.add('visible'); });
-    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
     document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
 
-    const nb = document.getElementById('navbar');
+    // Show/hide tab bar
+    const tabs = document.getElementById('tabs');
     new IntersectionObserver(e => {
-      e.forEach(x => nb.classList.toggle('visible', !x.isIntersecting));
+      e.forEach(x => tabs.classList.toggle('visible', !x.isIntersecting));
     }, { threshold: 0.1 }).observe(document.getElementById('inicio'));
 
-    const secs = document.querySelectorAll('section[id]');
-    const links = document.querySelectorAll('.nav a');
-    new IntersectionObserver(e => {
-      e.forEach(x => {
-        if (x.isIntersecting) links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + x.target.id));
-      });
-    }, { threshold: 0.3, rootMargin: '-10% 0px -60% 0px' }).observe(document.getElementById('peligros'));
-    new IntersectionObserver(e => {
-      e.forEach(x => {
-        if (x.isIntersecting) links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + x.target.id));
-      });
-    }, { threshold: 0.3, rootMargin: '-10% 0px -60% 0px' }).observe(document.getElementById('promesas'));
-    new IntersectionObserver(e => {
-      e.forEach(x => {
-        if (x.isIntersecting) links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + x.target.id));
-      });
-    }, { threshold: 0.3, rootMargin: '-10% 0px -60% 0px' }).observe(document.getElementById('plan'));
-    new IntersectionObserver(e => {
-      e.forEach(x => {
-        if (x.isIntersecting) links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + x.target.id));
-      });
-    }, { threshold: 0.3, rootMargin: '-10% 0px -60% 0px' }).observe(document.getElementById('fuentes'));
+    // Active tab
+    const tabLinks = document.querySelectorAll('.ios-tabs a');
+    ['peligros','promesas','plan','fuentes'].forEach(id => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      new IntersectionObserver(e => {
+        e.forEach(x => {
+          if (x.isIntersecting) tabLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + id));
+        });
+      }, { threshold: 0.3, rootMargin: '-10% 0px -50% 0px' }).observe(el);
+    });
   </script>
 </body>
 </html>
