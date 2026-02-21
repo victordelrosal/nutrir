@@ -379,6 +379,18 @@
     .protein-summary-table .age-col { font-weight: 600; color: var(--ios-text); white-space: nowrap; }
     .protein-summary-table .intake-col { color: var(--ios-orange); font-weight: 600; white-space: nowrap; }
 
+    /* ===== PROTEIN REFERENCE CARD ===== */
+    .protein-ref { padding: 12px 16px; border-bottom: 0.5px solid var(--ios-separator); }
+    .protein-ref-title { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; color: var(--ios-orange); margin-bottom: 10px; }
+    .protein-ref-item { display: flex; align-items: center; gap: 8px; padding: 5px 0; }
+    .protein-ref-item .picon { font-size: 18px; width: 24px; text-align: center; flex-shrink: 0; }
+    .protein-ref-item .pname { font-size: 13px; font-weight: 600; color: var(--ios-text); width: 90px; flex-shrink: 0; }
+    .protein-ref-item .pportion { font-size: 11px; color: var(--ios-text3); width: 68px; flex-shrink: 0; }
+    .protein-ref-bar-wrap { flex: 1; height: 18px; background: rgba(255,149,0,0.08); border-radius: 9px; overflow: hidden; position: relative; }
+    .protein-ref-bar { height: 100%; background: linear-gradient(90deg, var(--ios-orange), #ffb340); border-radius: 9px; min-width: 2px; transition: width 0.6s ease; }
+    .protein-ref-item .pgrams { font-size: 13px; font-weight: 700; color: var(--ios-orange); width: 36px; text-align: right; flex-shrink: 0; }
+    .protein-ref-note { font-size: 11px; color: var(--ios-text3); margin-top: 8px; padding-top: 8px; border-top: 0.5px solid var(--ios-separator); line-height: 1.4; }
+
     .ios-card-info { flex: 1; min-width: 0; }
     .ios-card-label {
       font-size: 17px; font-weight: 600; line-height: 1.3;
@@ -973,6 +985,24 @@
         <!-- Intro -->
         <div class="ios-protein-intro">
           La proteína construye músculo, huesos, cerebro y defensas. <strong>Las necesidades cambian con la edad.</strong> Esta guía traduce la ciencia en acciones concretas para cada etapa.
+        </div>
+
+        <!-- Protein reference chart -->
+        <div class="protein-ref">
+          <div class="protein-ref-title">🥩 ¿Cuánta proteína tiene cada alimento?</div>
+          <div class="protein-ref-item"><span class="picon">🍗</span><span class="pname">Pechuga</span><span class="pportion">100 g</span><div class="protein-ref-bar-wrap"><div class="protein-ref-bar" style="width:100%"></div></div><span class="pgrams">31 g</span></div>
+          <div class="protein-ref-item"><span class="picon">🥩</span><span class="pname">Res</span><span class="pportion">100 g</span><div class="protein-ref-bar-wrap"><div class="protein-ref-bar" style="width:84%"></div></div><span class="pgrams">26 g</span></div>
+          <div class="protein-ref-item"><span class="picon">🐟</span><span class="pname">Salmón</span><span class="pportion">100 g</span><div class="protein-ref-bar-wrap"><div class="protein-ref-bar" style="width:81%"></div></div><span class="pgrams">25 g</span></div>
+          <div class="protein-ref-item"><span class="picon">🐟</span><span class="pname">Atún (lata)</span><span class="pportion">1 lata 80 g</span><div class="protein-ref-bar-wrap"><div class="protein-ref-bar" style="width:65%"></div></div><span class="pgrams">20 g</span></div>
+          <div class="protein-ref-item"><span class="picon">🫘</span><span class="pname">Lentejas</span><span class="pportion">1 taza cocida</span><div class="protein-ref-bar-wrap"><div class="protein-ref-bar" style="width:58%"></div></div><span class="pgrams">18 g</span></div>
+          <div class="protein-ref-item"><span class="picon">🌱</span><span class="pname">Tofu firme</span><span class="pportion">100 g</span><div class="protein-ref-bar-wrap"><div class="protein-ref-bar" style="width:55%"></div></div><span class="pgrams">17 g</span></div>
+          <div class="protein-ref-item"><span class="picon">🫘</span><span class="pname">Frijoles</span><span class="pportion">1 taza cocida</span><div class="protein-ref-bar-wrap"><div class="protein-ref-bar" style="width:48%"></div></div><span class="pgrams">15 g</span></div>
+          <div class="protein-ref-item"><span class="picon">🥛</span><span class="pname">Yogurt griego</span><span class="pportion">170 g</span><div class="protein-ref-bar-wrap"><div class="protein-ref-bar" style="width:48%"></div></div><span class="pgrams">15 g</span></div>
+          <div class="protein-ref-item"><span class="picon">🧀</span><span class="pname">Queso panela</span><span class="pportion">50 g</span><div class="protein-ref-bar-wrap"><div class="protein-ref-bar" style="width:29%"></div></div><span class="pgrams">9 g</span></div>
+          <div class="protein-ref-item"><span class="picon">🥛</span><span class="pname">Leche</span><span class="pportion">1 vaso 240 ml</span><div class="protein-ref-bar-wrap"><div class="protein-ref-bar" style="width:26%"></div></div><span class="pgrams">8 g</span></div>
+          <div class="protein-ref-item"><span class="picon">🥜</span><span class="pname">Cacahuates</span><span class="pportion">30 g (puño)</span><div class="protein-ref-bar-wrap"><div class="protein-ref-bar" style="width:23%"></div></div><span class="pgrams">7 g</span></div>
+          <div class="protein-ref-item"><span class="picon">🥚</span><span class="pname">Huevo</span><span class="pportion">1 pieza</span><div class="protein-ref-bar-wrap"><div class="protein-ref-bar" style="width:19%"></div></div><span class="pgrams">6 g</span></div>
+          <div class="protein-ref-note">Porciones comunes mexicanas. Un niño de 4 a 8 necesita ~19 g/día: 1 huevo + 1 vaso de leche + 1 yogurt ya lo cubre.</div>
         </div>
 
         <!-- Age group cards inside -->
