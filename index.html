@@ -146,6 +146,28 @@
     .card-source a { text-decoration: none; }
     .card-source a:hover { text-decoration: underline; }
 
+    /* COLLAPSIBLE CARDS */
+    .card-head { cursor: pointer; position: relative; padding-right: 2rem; }
+    .card-chevron {
+      position: absolute; right: 0; top: 0.3rem;
+      width: 22px; height: 22px;
+      transition: transform 0.35s ease;
+      opacity: 0.4;
+    }
+    .card.open .card-chevron { transform: rotate(180deg); opacity: 0.7; }
+    .danger-card .card-chevron { color: var(--color-danger-accent); }
+    .promise-card .card-chevron { color: var(--color-promise-accent); }
+    .card-body {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.4s ease, opacity 0.3s ease;
+      opacity: 0;
+    }
+    .card-body > * { overflow: hidden; }
+    .card.open .card-body { grid-template-rows: 1fr; opacity: 1; }
+    .card-body .card-list { margin-top: 0; }
+    .card:not(.open) .card-body { pointer-events: none; }
+
     /* PROMISE */
     .promises { background: var(--color-promise-bg); padding: 4rem 1.25rem 4.5rem; }
     .promises .section-number { background: rgba(26,138,92,0.12); color: var(--color-promise-accent); }
@@ -528,6 +550,38 @@
 
   <!-- JS -->
   <script>
+    // Collapsible cards
+    document.querySelectorAll('.card').forEach(card => {
+      const num = card.querySelector('.card-number');
+      const title = card.querySelector('.card-title');
+      const stat = card.querySelector('.stat-highlight');
+      const list = card.querySelector('.card-list');
+      const src = card.querySelector('.card-source');
+      if (!list) return;
+
+      const head = document.createElement('div');
+      head.className = 'card-head';
+      const chevron = document.createElementNS('http://www.w3.org/2000/svg','svg');
+      chevron.setAttribute('class','card-chevron');
+      chevron.setAttribute('viewBox','0 0 24 24');
+      chevron.innerHTML = '<path d="M7 10l5 5 5-5" stroke="currentColor" stroke-width="2" fill="none"/>';
+      card.prepend(head);
+      head.appendChild(num);
+      head.appendChild(title);
+      if (stat) head.appendChild(stat);
+      head.appendChild(chevron);
+
+      const body = document.createElement('div');
+      body.className = 'card-body';
+      const inner = document.createElement('div');
+      inner.appendChild(list);
+      if (src) inner.appendChild(src);
+      body.appendChild(inner);
+      card.appendChild(body);
+
+      head.addEventListener('click', () => card.classList.toggle('open'));
+    });
+
     const ro = new IntersectionObserver(e => {
       e.forEach(x => { if (x.isIntersecting) x.target.classList.add('visible'); });
     }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
