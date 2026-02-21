@@ -470,17 +470,37 @@
 
     .ios-plan-head {
       display: flex; align-items: center; gap: 12px;
-      padding: 14px 16px 6px;
+      padding: 14px 16px;
+      cursor: pointer; -webkit-user-select: none; user-select: none;
+      transition: background 0.15s ease;
     }
+    .ios-plan-head:active { background: rgba(0,0,0,0.04); }
+    .ios-plan-head-info { flex: 1; min-width: 0; }
     .ios-plan-badge {
       font-size: 11px; font-weight: 700; text-transform: uppercase;
       letter-spacing: 0.04em;
       color: var(--ios-blue); background: var(--ios-blue-bg);
       padding: 3px 10px; border-radius: 6px;
+      display: inline-block; margin-bottom: 6px;
     }
     .ios-plan-title {
-      font-size: 17px; font-weight: 700; padding: 0 16px 4px;
+      font-size: 17px; font-weight: 700;
     }
+    .ios-plan-toggle {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--ios-blue-bg); color: var(--ios-blue);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px; font-weight: 300; flex-shrink: 0;
+      line-height: 1;
+      transition: background 0.2s ease;
+    }
+    .ios-plan-card.open .ios-plan-toggle { background: var(--ios-blue); color: #fff; }
+    .ios-plan-body {
+      display: grid; grid-template-rows: 0fr;
+      transition: grid-template-rows 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .ios-plan-card.open .ios-plan-body { grid-template-rows: 1fr; }
+    .ios-plan-body-inner { overflow: hidden; }
 
     .ios-plan-list {
       list-style: none; padding: 0; margin: 0;
@@ -912,50 +932,78 @@
 
     <!-- Step 1 -->
     <div class="ios-plan-card reveal">
-      <div class="ios-plan-head"><span class="ios-plan-badge">Mañana</span></div>
-      <div class="ios-plan-title">Ganancias inmediatas. Sin cocinar.</div>
-      <ul class="ios-plan-list">
-        <li><span class="check">✓</span><div class="item-text">🥛 Lácteos en cada comida<span class="item-sub">2 vasos de leche cubren ~60% del calcio diario. <strong>Si hay intolerancia:</strong> leche deslactosada, yogurt natural o queso añejo (los mismos nutrientes, sin molestia).</span></div></li>
-        <li><span class="check">✓</span><div class="item-text">🥚 Un huevo por niño al día<span class="item-sub">Fuente económica de proteína completa y B12. En la infancia temprana, un huevo diario mejoró los indicadores de crecimiento (estudio en Ecuador).</span></div></li>
-        <li><span class="check">✓</span><div class="item-text">🥣 Cereal fortificado + leche para desayuno<span class="item-sub">Cero cocina. Cubre hierro, vitaminas B, calcio y proteína. Usar leche deslactosada si es necesario.</span></div></li>
-        <li><span class="check">✓</span><div class="item-text">🩺 Agendar cita con pediatra<span class="item-sub">Si hay bajo peso, infecciones frecuentes o fatiga: no esperes. Pide percentiles de crecimiento y análisis de sangre (hierro, ferritina, vitamina D).</span></div></li>
-      </ul>
+      <div class="ios-plan-head">
+        <div class="ios-plan-head-info">
+          <span class="ios-plan-badge">Mañana</span>
+          <div class="ios-plan-title">Ganancias inmediatas. Sin cocinar.</div>
+        </div>
+        <div class="ios-plan-toggle">+</div>
+      </div>
+      <div class="ios-plan-body"><div class="ios-plan-body-inner">
+        <ul class="ios-plan-list">
+          <li><span class="check">✓</span><div class="item-text">🥛 Lácteos en cada comida<span class="item-sub">2 vasos de leche cubren ~60% del calcio diario. <strong>Si hay intolerancia:</strong> leche deslactosada, yogurt natural o queso añejo (los mismos nutrientes, sin molestia).</span></div></li>
+          <li><span class="check">✓</span><div class="item-text">🥚 Un huevo por niño al día<span class="item-sub">Fuente económica de proteína completa y B12. En la infancia temprana, un huevo diario mejoró los indicadores de crecimiento (estudio en Ecuador).</span></div></li>
+          <li><span class="check">✓</span><div class="item-text">🥣 Cereal fortificado + leche para desayuno<span class="item-sub">Cero cocina. Cubre hierro, vitaminas B, calcio y proteína. Usar leche deslactosada si es necesario.</span></div></li>
+          <li><span class="check">✓</span><div class="item-text">🩺 Agendar cita con pediatra<span class="item-sub">Si hay bajo peso, infecciones frecuentes o fatiga: no esperes. Pide percentiles de crecimiento y análisis de sangre (hierro, ferritina, vitamina D).</span></div></li>
+        </ul>
+      </div></div>
     </div>
 
     <!-- Step 2 -->
     <div class="ios-plan-card reveal">
-      <div class="ios-plan-head"><span class="ios-plan-badge">Esta semana</span></div>
-      <div class="ios-plan-title">La despensa que nunca falla</div>
-      <ul class="ios-plan-list">
-        <li><span class="check">✓</span><div class="item-text">🧊 Refri: leche (o deslactosada), huevos, queso, yogurt, fruta lavada y cortada<span class="item-sub">La fruta lista para comer reduce la fricción y suele aumentar el consumo.</span></div></li>
-        <li><span class="check">✓</span><div class="item-text">🫘 Alacena: cereal, avena, tortillas, frijoles, atún, pasta<span class="item-sub">Frijoles + tortilla: una combinación tradicional que mejora el perfil de aminoácidos.</span></div></li>
-        <li><span class="check">✓</span><div class="item-text">❄️ Congelador: pollo en porciones, verduras congeladas<span class="item-sub">Comparables a las frescas (y a veces mejores que las frescas almacenadas varios días). Duran meses.</span></div></li>
-        <li><span class="check">✓</span><div class="item-text">🍌 Snacks accesibles: nueces, plátanos, barras, zanahoria<span class="item-sub">Si tiene hambre, que lo fácil sea lo nutritivo.</span></div></li>
-      </ul>
-      <div class="ios-plan-note"><strong>Meta: ~$800 a $1,200 MXN/semana</strong> (varía según la ciudad y el tamaño de la familia). Menos que pedir comida por app dos veces.</div>
+      <div class="ios-plan-head">
+        <div class="ios-plan-head-info">
+          <span class="ios-plan-badge">Esta semana</span>
+          <div class="ios-plan-title">La despensa que nunca falla</div>
+        </div>
+        <div class="ios-plan-toggle">+</div>
+      </div>
+      <div class="ios-plan-body"><div class="ios-plan-body-inner">
+        <ul class="ios-plan-list">
+          <li><span class="check">✓</span><div class="item-text">🧊 Refri: leche (o deslactosada), huevos, queso, yogurt, fruta lavada y cortada<span class="item-sub">La fruta lista para comer reduce la fricción y suele aumentar el consumo.</span></div></li>
+          <li><span class="check">✓</span><div class="item-text">🫘 Alacena: cereal, avena, tortillas, frijoles, atún, pasta<span class="item-sub">Frijoles + tortilla: una combinación tradicional que mejora el perfil de aminoácidos.</span></div></li>
+          <li><span class="check">✓</span><div class="item-text">❄️ Congelador: pollo en porciones, verduras congeladas<span class="item-sub">Comparables a las frescas (y a veces mejores que las frescas almacenadas varios días). Duran meses.</span></div></li>
+          <li><span class="check">✓</span><div class="item-text">🍌 Snacks accesibles: nueces, plátanos, barras, zanahoria<span class="item-sub">Si tiene hambre, que lo fácil sea lo nutritivo.</span></div></li>
+        </ul>
+        <div class="ios-plan-note"><strong>Meta: ~$800 a $1,200 MXN/semana</strong> (varía según la ciudad y el tamaño de la familia). Menos que pedir comida por app dos veces.</div>
+      </div></div>
     </div>
 
     <!-- Step 3 -->
     <div class="ios-plan-card reveal">
-      <div class="ios-plan-head"><span class="ios-plan-badge">Este mes</span></div>
-      <div class="ios-plan-title">El sistema que funciona solo</div>
-      <ul class="ios-plan-list">
-        <li><span class="check">✓</span><div class="item-text">👩‍🍳 Cocinera 3 días por semana<span class="item-sub">Culturalmente normal en México. ~$2,500 a $3,500 MXN/semana.</span></div></li>
-        <li><span class="check">✓</span><div class="item-text">📦 Alternativa: servicio de comida semanal<span class="item-sub">Come Bien, Nurish, u opciones locales. Elimina la planeación y las compras.</span></div></li>
-        <li><span class="check">✓</span><div class="item-text">👨‍👩‍👧‍👦 Mínimo 3 comidas en familia por semana<span class="item-sub">Sentarse juntos ya genera los beneficios documentados.</span></div></li>
-        <li><span class="check">✓</span><div class="item-text">⏰ Horarios fijos de comida<span class="item-sub">La estructura reduce la ansiedad infantil y mejora la digestión.</span></div></li>
-      </ul>
+      <div class="ios-plan-head">
+        <div class="ios-plan-head-info">
+          <span class="ios-plan-badge">Este mes</span>
+          <div class="ios-plan-title">El sistema que funciona solo</div>
+        </div>
+        <div class="ios-plan-toggle">+</div>
+      </div>
+      <div class="ios-plan-body"><div class="ios-plan-body-inner">
+        <ul class="ios-plan-list">
+          <li><span class="check">✓</span><div class="item-text">👩‍🍳 Cocinera 3 días por semana<span class="item-sub">Culturalmente normal en México. ~$2,500 a $3,500 MXN/semana.</span></div></li>
+          <li><span class="check">✓</span><div class="item-text">📦 Alternativa: servicio de comida semanal<span class="item-sub">Come Bien, Nurish, u opciones locales. Elimina la planeación y las compras.</span></div></li>
+          <li><span class="check">✓</span><div class="item-text">👨‍👩‍👧‍👦 Mínimo 3 comidas en familia por semana<span class="item-sub">Sentarse juntos ya genera los beneficios documentados.</span></div></li>
+          <li><span class="check">✓</span><div class="item-text">⏰ Horarios fijos de comida<span class="item-sub">La estructura reduce la ansiedad infantil y mejora la digestión.</span></div></li>
+        </ul>
+      </div></div>
     </div>
 
     <!-- Step 4 -->
     <div class="ios-plan-card reveal">
-      <div class="ios-plan-head"><span class="ios-plan-badge">Este trimestre</span></div>
-      <div class="ios-plan-title">Seguimiento y ajuste</div>
-      <ul class="ios-plan-list">
-        <li><span class="check">✓</span><div class="item-text">📋 Segunda consulta con pediatra/nutriólogo<span class="item-sub">Revisar el progreso con percentiles y laboratorios de seguimiento. Ajustar el plan según los resultados.</span></div></li>
-        <li><span class="check">✓</span><div class="item-text">💊 Evaluar la suplementación si hay deficiencias<span class="item-sub">Hierro, vitamina D o zinc según lo que indiquen los análisis. Siempre bajo supervisión médica.</span></div></li>
-        <li><span class="check">✓</span><div class="item-text">🤝 Considerar apoyo emocional para los padres<span class="item-sub">El agotamiento y la falta de estructura pueden estar conectados. Buscar orientación profesional.</span></div></li>
-      </ul>
+      <div class="ios-plan-head">
+        <div class="ios-plan-head-info">
+          <span class="ios-plan-badge">Este trimestre</span>
+          <div class="ios-plan-title">Seguimiento y ajuste</div>
+        </div>
+        <div class="ios-plan-toggle">+</div>
+      </div>
+      <div class="ios-plan-body"><div class="ios-plan-body-inner">
+        <ul class="ios-plan-list">
+          <li><span class="check">✓</span><div class="item-text">📋 Segunda consulta con pediatra/nutriólogo<span class="item-sub">Revisar el progreso con percentiles y laboratorios de seguimiento. Ajustar el plan según los resultados.</span></div></li>
+          <li><span class="check">✓</span><div class="item-text">💊 Evaluar la suplementación si hay deficiencias<span class="item-sub">Hierro, vitamina D o zinc según lo que indiquen los análisis. Siempre bajo supervisión médica.</span></div></li>
+          <li><span class="check">✓</span><div class="item-text">🤝 Considerar apoyo emocional para los padres<span class="item-sub">El agotamiento y la falta de estructura pueden estar conectados. Buscar orientación profesional.</span></div></li>
+        </ul>
+      </div></div>
     </div>
 
     <!-- MEDICAL ALERT -->
@@ -1259,6 +1307,16 @@
     // Collapsible cards
     document.querySelectorAll('.ios-card-head').forEach(head => {
       head.addEventListener('click', () => head.parentElement.classList.toggle('open'));
+    });
+
+    // Collapsible plan cards
+    document.querySelectorAll('.ios-plan-head').forEach(head => {
+      head.addEventListener('click', () => {
+        const card = head.closest('.ios-plan-card');
+        const toggle = head.querySelector('.ios-plan-toggle');
+        card.classList.toggle('open');
+        toggle.textContent = card.classList.contains('open') ? '−' : '+';
+      });
     });
 
     // Collapsible sources
