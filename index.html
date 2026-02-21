@@ -380,16 +380,22 @@
     .protein-summary-table .intake-col { color: var(--ios-orange); font-weight: 600; white-space: nowrap; }
 
     /* ===== PROTEIN REFERENCE CARD ===== */
-    .protein-ref { padding: 12px 16px; border-bottom: 0.5px solid var(--ios-separator); }
-    .protein-ref-title { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; color: var(--ios-orange); margin-bottom: 10px; }
-    .protein-ref-item { display: flex; align-items: center; gap: 8px; padding: 5px 0; }
-    .protein-ref-item .picon { font-size: 18px; width: 24px; text-align: center; flex-shrink: 0; }
-    .protein-ref-item .pname { font-size: 13px; font-weight: 600; color: var(--ios-text); width: 90px; flex-shrink: 0; }
-    .protein-ref-item .pportion { font-size: 11px; color: var(--ios-text3); width: 68px; flex-shrink: 0; }
-    .protein-ref-bar-wrap { flex: 1; height: 18px; background: rgba(255,149,0,0.08); border-radius: 9px; overflow: hidden; position: relative; }
-    .protein-ref-bar { height: 100%; background: linear-gradient(90deg, var(--ios-orange), #ffb340); border-radius: 9px; min-width: 2px; transition: width 0.6s ease; }
-    .protein-ref-item .pgrams { font-size: 13px; font-weight: 700; color: var(--ios-orange); width: 36px; text-align: right; flex-shrink: 0; }
-    .protein-ref-note { font-size: 11px; color: var(--ios-text3); margin-top: 8px; padding-top: 8px; border-top: 0.5px solid var(--ios-separator); line-height: 1.4; }
+    .protein-ref { padding: 14px 16px; border-bottom: 0.5px solid var(--ios-separator); }
+    .protein-ref-title { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; color: var(--ios-orange); margin-bottom: 12px; }
+    .protein-ref-item { display: flex; align-items: center; gap: 8px; padding: 4px 0; }
+    .pfood {
+      width: 38px; height: 38px; border-radius: 50%; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      border: 1.5px solid rgba(255,255,255,0.7);
+    }
+    .protein-ref-item .pname { font-size: 13px; font-weight: 600; color: var(--ios-text); width: 88px; flex-shrink: 0; line-height: 1.2; }
+    .protein-ref-item .pportion { font-size: 10px; color: var(--ios-text3); width: 66px; flex-shrink: 0; }
+    .protein-ref-bar-wrap { flex: 1; height: 16px; background: rgba(255,149,0,0.07); border-radius: 8px; overflow: hidden; }
+    .protein-ref-bar { height: 100%; background: linear-gradient(90deg, var(--ios-orange), #ffb340); border-radius: 8px; min-width: 2px; }
+    .protein-ref-item .pgrams { font-size: 13px; font-weight: 700; color: var(--ios-orange); width: 34px; text-align: right; flex-shrink: 0; }
+    .protein-ref-note { font-size: 11px; color: var(--ios-text3); margin-top: 10px; padding-top: 8px; border-top: 0.5px solid var(--ios-separator); line-height: 1.4; }
 
     .ios-card-info { flex: 1; min-width: 0; }
     .ios-card-label {
@@ -990,19 +996,20 @@
         <!-- Protein reference chart -->
         <div class="protein-ref">
           <div class="protein-ref-title">🥩 ¿Cuánta proteína tiene cada alimento?</div>
-          <div class="protein-ref-item"><span class="picon">🍗</span><span class="pname">Pechuga</span><span class="pportion">100 g</span><div class="protein-ref-bar-wrap"><div class="protein-ref-bar" style="width:100%"></div></div><span class="pgrams">31 g</span></div>
-          <div class="protein-ref-item"><span class="picon">🥩</span><span class="pname">Res</span><span class="pportion">100 g</span><div class="protein-ref-bar-wrap"><div class="protein-ref-bar" style="width:84%"></div></div><span class="pgrams">26 g</span></div>
-          <div class="protein-ref-item"><span class="picon">🐟</span><span class="pname">Salmón</span><span class="pportion">100 g</span><div class="protein-ref-bar-wrap"><div class="protein-ref-bar" style="width:81%"></div></div><span class="pgrams">25 g</span></div>
-          <div class="protein-ref-item"><span class="picon">🐟</span><span class="pname">Atún (lata)</span><span class="pportion">1 lata 80 g</span><div class="protein-ref-bar-wrap"><div class="protein-ref-bar" style="width:65%"></div></div><span class="pgrams">20 g</span></div>
-          <div class="protein-ref-item"><span class="picon">🫘</span><span class="pname">Lentejas</span><span class="pportion">1 taza cocida</span><div class="protein-ref-bar-wrap"><div class="protein-ref-bar" style="width:58%"></div></div><span class="pgrams">18 g</span></div>
-          <div class="protein-ref-item"><span class="picon">🌱</span><span class="pname">Tofu firme</span><span class="pportion">100 g</span><div class="protein-ref-bar-wrap"><div class="protein-ref-bar" style="width:55%"></div></div><span class="pgrams">17 g</span></div>
-          <div class="protein-ref-item"><span class="picon">🫘</span><span class="pname">Frijoles</span><span class="pportion">1 taza cocida</span><div class="protein-ref-bar-wrap"><div class="protein-ref-bar" style="width:48%"></div></div><span class="pgrams">15 g</span></div>
-          <div class="protein-ref-item"><span class="picon">🥛</span><span class="pname">Yogurt griego</span><span class="pportion">170 g</span><div class="protein-ref-bar-wrap"><div class="protein-ref-bar" style="width:48%"></div></div><span class="pgrams">15 g</span></div>
-          <div class="protein-ref-item"><span class="picon">🧀</span><span class="pname">Queso panela</span><span class="pportion">50 g</span><div class="protein-ref-bar-wrap"><div class="protein-ref-bar" style="width:29%"></div></div><span class="pgrams">9 g</span></div>
-          <div class="protein-ref-item"><span class="picon">🥛</span><span class="pname">Leche</span><span class="pportion">1 vaso 240 ml</span><div class="protein-ref-bar-wrap"><div class="protein-ref-bar" style="width:26%"></div></div><span class="pgrams">8 g</span></div>
-          <div class="protein-ref-item"><span class="picon">🥜</span><span class="pname">Cacahuates</span><span class="pportion">30 g (puño)</span><div class="protein-ref-bar-wrap"><div class="protein-ref-bar" style="width:23%"></div></div><span class="pgrams">7 g</span></div>
-          <div class="protein-ref-item"><span class="picon">🥚</span><span class="pname">Huevo</span><span class="pportion">1 pieza</span><div class="protein-ref-bar-wrap"><div class="protein-ref-bar" style="width:19%"></div></div><span class="pgrams">6 g</span></div>
-          <div class="protein-ref-note">Porciones comunes mexicanas. Un niño de 4 a 8 necesita ~19 g/día: 1 huevo + 1 vaso de leche + 1 yogurt ya lo cubre.</div>
+          <div class="protein-ref-item"><div class="pfood" style="background:#FFF3E0">🍗</div><span class="pname">Pechuga</span><span class="pportion">100 g</span><div class="protein-ref-bar-wrap"><div class="protein-ref-bar" style="width:100%"></div></div><span class="pgrams">31 g</span></div>
+          <div class="protein-ref-item"><div class="pfood" style="background:#FFEBEE">🥩</div><span class="pname">Res</span><span class="pportion">100 g</span><div class="protein-ref-bar-wrap"><div class="protein-ref-bar" style="width:84%"></div></div><span class="pgrams">26 g</span></div>
+          <div class="protein-ref-item"><div class="pfood" style="background:#FCE4EC">🐟</div><span class="pname">Salmón</span><span class="pportion">100 g</span><div class="protein-ref-bar-wrap"><div class="protein-ref-bar" style="width:81%"></div></div><span class="pgrams">25 g</span></div>
+          <div class="protein-ref-item"><div class="pfood" style="background:#E3F2FD">💪</div><span class="pname">Whey protein</span><span class="pportion">1 scoop 31 g</span><div class="protein-ref-bar-wrap"><div class="protein-ref-bar" style="width:77%"></div></div><span class="pgrams">24 g</span></div>
+          <div class="protein-ref-item"><div class="pfood" style="background:#E0F7FA">🐟</div><span class="pname">Atún (lata)</span><span class="pportion">1 lata 80 g</span><div class="protein-ref-bar-wrap"><div class="protein-ref-bar" style="width:65%"></div></div><span class="pgrams">20 g</span></div>
+          <div class="protein-ref-item"><div class="pfood" style="background:#EFEBE9">🫘</div><span class="pname">Lentejas</span><span class="pportion">1 taza cocida</span><div class="protein-ref-bar-wrap"><div class="protein-ref-bar" style="width:58%"></div></div><span class="pgrams">18 g</span></div>
+          <div class="protein-ref-item"><div class="pfood" style="background:#F1F8E9">🌱</div><span class="pname">Tofu firme</span><span class="pportion">100 g</span><div class="protein-ref-bar-wrap"><div class="protein-ref-bar" style="width:55%"></div></div><span class="pgrams">17 g</span></div>
+          <div class="protein-ref-item"><div class="pfood" style="background:#FBE9E7">🫘</div><span class="pname">Frijoles</span><span class="pportion">1 taza cocida</span><div class="protein-ref-bar-wrap"><div class="protein-ref-bar" style="width:48%"></div></div><span class="pgrams">15 g</span></div>
+          <div class="protein-ref-item"><div class="pfood" style="background:#FFFDE7">🥛</div><span class="pname">Yogurt griego</span><span class="pportion">170 g</span><div class="protein-ref-bar-wrap"><div class="protein-ref-bar" style="width:48%"></div></div><span class="pgrams">15 g</span></div>
+          <div class="protein-ref-item"><div class="pfood" style="background:#FFF8E1">🧀</div><span class="pname">Queso panela</span><span class="pportion">50 g</span><div class="protein-ref-bar-wrap"><div class="protein-ref-bar" style="width:29%"></div></div><span class="pgrams">9 g</span></div>
+          <div class="protein-ref-item"><div class="pfood" style="background:#FAFAFA">🥛</div><span class="pname">Leche</span><span class="pportion">1 vaso 240 ml</span><div class="protein-ref-bar-wrap"><div class="protein-ref-bar" style="width:26%"></div></div><span class="pgrams">8 g</span></div>
+          <div class="protein-ref-item"><div class="pfood" style="background:#FFF3E0">🥜</div><span class="pname">Cacahuates</span><span class="pportion">30 g (puño)</span><div class="protein-ref-bar-wrap"><div class="protein-ref-bar" style="width:23%"></div></div><span class="pgrams">7 g</span></div>
+          <div class="protein-ref-item"><div class="pfood" style="background:#FFF8E1">🥚</div><span class="pname">Huevo</span><span class="pportion">1 pieza</span><div class="protein-ref-bar-wrap"><div class="protein-ref-bar" style="width:19%"></div></div><span class="pgrams">6 g</span></div>
+          <div class="protein-ref-note">Porciones comunes mexicanas. Un niño de 4 a 8 necesita ~19 g/día: 1 huevo + 1 vaso de leche + 1 yogurt ya lo cubre. Whey protein (ej. Gold Standard): solo recomendado para adultos.</div>
         </div>
 
         <!-- Age group cards inside -->
@@ -1206,7 +1213,7 @@
 
     <div class="ios-sources">
       <div class="ios-sources-head">
-        <span>20 estudios científicos</span>
+        <span>24 estudios científicos</span>
         <span class="ios-chevron-sm"></span>
       </div>
       <div class="ios-sources-body"><div class="ios-sources-body-inner">
@@ -1231,6 +1238,10 @@
           <li>"Restrictive Feeding and Dietary Intake." <em>Appetite</em> 2024. <a href="https://www.sciencedirect.com/science/article/pii/S0195666324003118" target="_blank" rel="noopener">ScienceDirect</a></li>
           <li>Snow. "Mealtime Talk and Literacy." Harvard 2006. <a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/cd.155" target="_blank" rel="noopener">Wiley</a></li>
           <li>CDC. "Children Under Five: Food Poisoning Risk." <a href="https://www.foodsafety.gov/people-at-risk/children-under-five" target="_blank" rel="noopener">FoodSafety.gov</a></li>
+          <li>Bauer et al. "Evidence-Based Recommendations for Optimal Dietary Protein Intake in Older People: A Position Paper from the PROT-AGE Study Group." <em>JAMDA</em> 2013. <a href="https://pubmed.ncbi.nlm.nih.gov/23867520/" target="_blank" rel="noopener">PubMed</a></li>
+          <li>Morton et al. "A Systematic Review of Protein Supplements and Resistance Training on Lean Mass and Strength." <em>British Journal of Sports Medicine</em> 2018. <a href="https://pubmed.ncbi.nlm.nih.gov/28698222/" target="_blank" rel="noopener">PubMed</a></li>
+          <li>Iannotti et al. "Eggs in Early Complementary Feeding and Child Growth: A Randomized Controlled Trial." <em>Pediatrics</em> 2017. <a href="https://pubmed.ncbi.nlm.nih.gov/28588101/" target="_blank" rel="noopener">PubMed</a></li>
+          <li>Phillips et al. "Protein Requirements Beyond the RDA: Implications for Optimizing Health." <em>Applied Physiology, Nutrition, and Metabolism</em> 2016. <a href="https://pubmed.ncbi.nlm.nih.gov/26960445/" target="_blank" rel="noopener">PubMed</a></li>
         </ol>
       </div></div>
     </div>
