@@ -221,7 +221,26 @@
     .ios-card-icon {
       width: 36px; height: 36px; border-radius: 8px;
       display: flex; align-items: center; justify-content: center;
-      font-size: 18px; font-weight: 700; flex-shrink: 0;
+      font-size: 20px; flex-shrink: 0;
+    }
+    .ios-card-icon svg { width: 20px; height: 20px; }
+
+    /* ===== ILLUSTRATION IMAGES ===== */
+    .ios-illustration {
+      margin: 8px 16px 12px;
+      border-radius: var(--ios-radius);
+      overflow: hidden;
+      box-shadow: 0 0 0 0.5px var(--ios-separator);
+    }
+    .ios-illustration img {
+      width: 100%; height: auto; display: block;
+    }
+    .ios-illustration figcaption {
+      background: var(--ios-card);
+      padding: 10px 16px;
+      font-size: 13px; color: var(--ios-text2);
+      text-align: center;
+      border-top: 0.5px solid var(--ios-separator);
     }
     .danger .ios-card-icon { background: var(--ios-red-bg); color: var(--ios-red); }
     .promise .ios-card-icon { background: var(--ios-green-bg); color: var(--ios-green); }
@@ -416,7 +435,7 @@
     /* ===== DESKTOP ===== */
     @media (min-width: 768px) {
       .hero h1 { font-size: 56px; }
-      .ios-group, .ios-plan-card, .ios-req, .ios-banner, .ios-key, .ios-sources {
+      .ios-group, .ios-plan-card, .ios-req, .ios-banner, .ios-key, .ios-sources, .ios-illustration {
         max-width: 640px; margin-left: auto; margin-right: auto;
       }
       .ios-section { max-width: 672px; margin-left: auto; margin-right: auto; }
@@ -463,11 +482,15 @@
       <div class="ios-section-sub">Lo que la ciencia asocia con una nutrición insuficiente en la infancia.</div>
     </div>
 
+    <figure class="ios-illustration reveal">
+      <img src="before.png" alt="Niños con nutrición insuficiente" loading="lazy">
+    </figure>
+
     <div class="ios-group reveal">
-      <!-- P1 -->
+      <!-- P1: Cerebro -->
       <div class="ios-card danger">
         <div class="ios-card-head">
-          <div class="ios-card-icon">01</div>
+          <div class="ios-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 0 1 7 7c0 2.5-1.5 4.5-3 6s-2 3.5-2 5h-4c0-1.5-.5-3.5-2-5s-3-3.5-3-6a7 7 0 0 1 7-7z"/><path d="M9 20h6"/><path d="M10 22h4"/></svg></div>
           <div class="ios-card-info">
             <div class="ios-card-label">Riesgo de daño cerebral</div>
             <div class="ios-card-stat">Peores resultados cognitivos documentados</div>
@@ -483,10 +506,10 @@
           <div class="src">JAMA Pediatrics; Galler et al., <em>Nutritional Neuroscience</em> 2012. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3796166/" target="_blank" rel="noopener">Ver estudio →</a></div>
         </div></div></div>
       </div>
-      <!-- P2 -->
+      <!-- P2: Inmune -->
       <div class="ios-card danger">
         <div class="ios-card-head">
-          <div class="ios-card-icon">02</div>
+          <div class="ios-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
           <div class="ios-card-info">
             <div class="ios-card-label">Sistema inmune debilitado</div>
             <div class="ios-card-stat">Mayor vulnerabilidad a infecciones</div>
@@ -502,10 +525,10 @@
           <div class="src">UNICEF / <em>PLOS ONE</em> 2014; CDC. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4143239/" target="_blank" rel="noopener">Ver estudio →</a></div>
         </div></div></div>
       </div>
-      <!-- P3 -->
+      <!-- P3: Crecimiento -->
       <div class="ios-card danger">
         <div class="ios-card-head">
-          <div class="ios-card-icon">03</div>
+          <div class="ios-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V4"/><path d="M5 12l7-8 7 8"/></svg></div>
           <div class="ios-card-info">
             <div class="ios-card-label">Crecimiento detenido</div>
             <div class="ios-card-stat">Daño sistémico, no solo en estatura</div>
@@ -521,10 +544,10 @@
           <div class="src"><em>Am. J. Clinical Nutrition</em>; PMC 2021. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7975963/" target="_blank" rel="noopener">Ver estudio →</a></div>
         </div></div></div>
       </div>
-      <!-- P4 -->
+      <!-- P4: Oportunidades -->
       <div class="ios-card danger">
         <div class="ios-card-head">
-          <div class="ios-card-icon">04</div>
+          <div class="ios-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
           <div class="ios-card-info">
             <div class="ios-card-label">Futuro con menos oportunidades</div>
             <div class="ios-card-stat">Menos escolaridad, menores ingresos</div>
@@ -540,10 +563,10 @@
           <div class="src"><em>The Lancet</em> 2008; Galler et al. 2012. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3382923/" target="_blank" rel="noopener">Ver estudio →</a></div>
         </div></div></div>
       </div>
-      <!-- P5 -->
+      <!-- P5: Emocional -->
       <div class="ios-card danger">
         <div class="ios-card-head">
-          <div class="ios-card-icon">05</div>
+          <div class="ios-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
           <div class="ios-card-info">
             <div class="ios-card-label">Mayor riesgo emocional</div>
             <div class="ios-card-stat">Asociado con problemas de salud mental</div>
@@ -573,11 +596,15 @@
       <div class="ios-section-sub">Lo que la evidencia sugiere cuando un niño recibe una buena nutrición.</div>
     </div>
 
+    <figure class="ios-illustration reveal">
+      <img src="after.png" alt="Niños con buena nutrición" loading="lazy">
+    </figure>
+
     <div class="ios-group reveal">
-      <!-- PR1 -->
+      <!-- PR1: Cerebro -->
       <div class="ios-card promise">
         <div class="ios-card-head">
-          <div class="ios-card-icon">01</div>
+          <div class="ios-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div>
           <div class="ios-card-info">
             <div class="ios-card-label">Cerebro en su máximo potencial</div>
             <div class="ios-card-stat">Mejoras cognitivas medibles</div>
@@ -593,10 +620,10 @@
           <div class="src"><em>PLOS ONE</em> 2023; <em>Nutrients</em> 2023. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10298800/" target="_blank" rel="noopener">Ver estudio →</a></div>
         </div></div></div>
       </div>
-      <!-- PR2 -->
+      <!-- PR2: Defensas -->
       <div class="ios-card promise">
         <div class="ios-card-head">
-          <div class="ios-card-icon">02</div>
+          <div class="ios-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
           <div class="ios-card-info">
             <div class="ios-card-label">Defensas que funcionan</div>
             <div class="ios-card-stat">Menos días enfermos (ensayo clínico)</div>
@@ -612,10 +639,10 @@
           <div class="src">PMC 2023; <em>Cochrane Reviews</em> 2014. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10443358/" target="_blank" rel="noopener">Ver estudio →</a></div>
         </div></div></div>
       </div>
-      <!-- PR3 -->
+      <!-- PR3: Crecimiento -->
       <div class="ios-card promise">
         <div class="ios-card-head">
-          <div class="ios-card-icon">03</div>
+          <div class="ios-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V4"/><path d="M5 12l7-8 7 8"/></svg></div>
           <div class="ios-card-info">
             <div class="ios-card-label">Crecimiento pleno</div>
             <div class="ios-card-stat">Cambios medibles en semanas</div>
@@ -631,10 +658,10 @@
           <div class="src">OMS/NHS; PMC 2017. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6518138/" target="_blank" rel="noopener">Ver estudio →</a></div>
         </div></div></div>
       </div>
-      <!-- PR4 -->
+      <!-- PR4: Oportunidades -->
       <div class="ios-card promise">
         <div class="ios-card-head">
-          <div class="ios-card-icon">04</div>
+          <div class="ios-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
           <div class="ios-card-info">
             <div class="ios-card-label">Más oportunidades de por vida</div>
             <div class="ios-card-stat">Mejor escolaridad y mayores ingresos</div>
@@ -650,10 +677,10 @@
           <div class="src">Hoddinott, <em>The Lancet</em> 2008; Lundborg 2022. <a href="https://academic.oup.com/restud/article/89/2/876/6273674" target="_blank" rel="noopener">Ver estudio →</a></div>
         </div></div></div>
       </div>
-      <!-- PR5 -->
+      <!-- PR5: Bienestar -->
       <div class="ios-card promise">
         <div class="ios-card-head">
-          <div class="ios-card-icon">05</div>
+          <div class="ios-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
           <div class="ios-card-info">
             <div class="ios-card-label">Bienestar emocional</div>
             <div class="ios-card-stat">Asociado con mejor salud mental</div>
@@ -694,10 +721,10 @@
       <div class="ios-plan-head"><span class="ios-plan-badge">Mañana</span></div>
       <div class="ios-plan-title">Ganancias inmediatas. Sin cocinar.</div>
       <ul class="ios-plan-list">
-        <li><span class="check">✓</span><div class="item-text">Lácteos en cada comida<span class="item-sub">2 vasos de leche cubren ~60% del calcio diario. <strong>Si hay intolerancia:</strong> leche deslactosada, yogurt natural o queso añejo (los mismos nutrientes, sin molestia).</span></div></li>
-        <li><span class="check">✓</span><div class="item-text">Un huevo por niño al día<span class="item-sub">Fuente económica de proteína completa y B12. En la infancia temprana, un huevo diario mejoró los indicadores de crecimiento (estudio en Ecuador).</span></div></li>
-        <li><span class="check">✓</span><div class="item-text">Cereal fortificado + leche para desayuno<span class="item-sub">Cero cocina. Cubre hierro, vitaminas B, calcio y proteína. Usar leche deslactosada si es necesario.</span></div></li>
-        <li><span class="check">✓</span><div class="item-text">Agendar cita con pediatra<span class="item-sub">Si hay bajo peso, infecciones frecuentes o fatiga: no esperes. Pide percentiles de crecimiento y análisis de sangre (hierro, ferritina, vitamina D).</span></div></li>
+        <li><span class="check">✓</span><div class="item-text">🥛 Lácteos en cada comida<span class="item-sub">2 vasos de leche cubren ~60% del calcio diario. <strong>Si hay intolerancia:</strong> leche deslactosada, yogurt natural o queso añejo (los mismos nutrientes, sin molestia).</span></div></li>
+        <li><span class="check">✓</span><div class="item-text">🥚 Un huevo por niño al día<span class="item-sub">Fuente económica de proteína completa y B12. En la infancia temprana, un huevo diario mejoró los indicadores de crecimiento (estudio en Ecuador).</span></div></li>
+        <li><span class="check">✓</span><div class="item-text">🥣 Cereal fortificado + leche para desayuno<span class="item-sub">Cero cocina. Cubre hierro, vitaminas B, calcio y proteína. Usar leche deslactosada si es necesario.</span></div></li>
+        <li><span class="check">✓</span><div class="item-text">🩺 Agendar cita con pediatra<span class="item-sub">Si hay bajo peso, infecciones frecuentes o fatiga: no esperes. Pide percentiles de crecimiento y análisis de sangre (hierro, ferritina, vitamina D).</span></div></li>
       </ul>
     </div>
 
@@ -706,10 +733,10 @@
       <div class="ios-plan-head"><span class="ios-plan-badge">Esta semana</span></div>
       <div class="ios-plan-title">La despensa que nunca falla</div>
       <ul class="ios-plan-list">
-        <li><span class="check">✓</span><div class="item-text">Refri: leche (o deslactosada), huevos, queso, yogurt, fruta lavada y cortada<span class="item-sub">La fruta lista para comer reduce la fricción y suele aumentar el consumo.</span></div></li>
-        <li><span class="check">✓</span><div class="item-text">Alacena: cereal, avena, tortillas, frijoles, atún, pasta<span class="item-sub">Frijoles + tortilla: una combinación tradicional que mejora el perfil de aminoácidos.</span></div></li>
-        <li><span class="check">✓</span><div class="item-text">Congelador: pollo en porciones, verduras congeladas<span class="item-sub">Comparables a las frescas (y a veces mejores que las frescas almacenadas varios días). Duran meses.</span></div></li>
-        <li><span class="check">✓</span><div class="item-text">Snacks accesibles: nueces, plátanos, barras, zanahoria<span class="item-sub">Si tiene hambre, que lo fácil sea lo nutritivo.</span></div></li>
+        <li><span class="check">✓</span><div class="item-text">🧊 Refri: leche (o deslactosada), huevos, queso, yogurt, fruta lavada y cortada<span class="item-sub">La fruta lista para comer reduce la fricción y suele aumentar el consumo.</span></div></li>
+        <li><span class="check">✓</span><div class="item-text">🫘 Alacena: cereal, avena, tortillas, frijoles, atún, pasta<span class="item-sub">Frijoles + tortilla: una combinación tradicional que mejora el perfil de aminoácidos.</span></div></li>
+        <li><span class="check">✓</span><div class="item-text">❄️ Congelador: pollo en porciones, verduras congeladas<span class="item-sub">Comparables a las frescas (y a veces mejores que las frescas almacenadas varios días). Duran meses.</span></div></li>
+        <li><span class="check">✓</span><div class="item-text">🍌 Snacks accesibles: nueces, plátanos, barras, zanahoria<span class="item-sub">Si tiene hambre, que lo fácil sea lo nutritivo.</span></div></li>
       </ul>
       <div class="ios-plan-note"><strong>Meta: ~$800 a $1,200 MXN/semana</strong> (varía según la ciudad y el tamaño de la familia). Menos que pedir comida por app dos veces.</div>
     </div>
@@ -719,10 +746,10 @@
       <div class="ios-plan-head"><span class="ios-plan-badge">Este mes</span></div>
       <div class="ios-plan-title">El sistema que funciona solo</div>
       <ul class="ios-plan-list">
-        <li><span class="check">✓</span><div class="item-text">Cocinera 3 días por semana<span class="item-sub">Culturalmente normal en México. ~$2,500 a $3,500 MXN/semana.</span></div></li>
-        <li><span class="check">✓</span><div class="item-text">Alternativa: servicio de comida semanal<span class="item-sub">Come Bien, Nurish, u opciones locales. Elimina la planeación y las compras.</span></div></li>
-        <li><span class="check">✓</span><div class="item-text">Mínimo 3 comidas en familia por semana<span class="item-sub">Sentarse juntos ya genera los beneficios documentados.</span></div></li>
-        <li><span class="check">✓</span><div class="item-text">Horarios fijos de comida<span class="item-sub">La estructura reduce la ansiedad infantil y mejora la digestión.</span></div></li>
+        <li><span class="check">✓</span><div class="item-text">👩‍🍳 Cocinera 3 días por semana<span class="item-sub">Culturalmente normal en México. ~$2,500 a $3,500 MXN/semana.</span></div></li>
+        <li><span class="check">✓</span><div class="item-text">📦 Alternativa: servicio de comida semanal<span class="item-sub">Come Bien, Nurish, u opciones locales. Elimina la planeación y las compras.</span></div></li>
+        <li><span class="check">✓</span><div class="item-text">👨‍👩‍👧‍👦 Mínimo 3 comidas en familia por semana<span class="item-sub">Sentarse juntos ya genera los beneficios documentados.</span></div></li>
+        <li><span class="check">✓</span><div class="item-text">⏰ Horarios fijos de comida<span class="item-sub">La estructura reduce la ansiedad infantil y mejora la digestión.</span></div></li>
       </ul>
     </div>
 
@@ -731,9 +758,9 @@
       <div class="ios-plan-head"><span class="ios-plan-badge">Este trimestre</span></div>
       <div class="ios-plan-title">Seguimiento y ajuste</div>
       <ul class="ios-plan-list">
-        <li><span class="check">✓</span><div class="item-text">Segunda consulta con pediatra/nutriólogo<span class="item-sub">Revisar el progreso con percentiles y laboratorios de seguimiento. Ajustar el plan según los resultados.</span></div></li>
-        <li><span class="check">✓</span><div class="item-text">Evaluar la suplementación si hay deficiencias<span class="item-sub">Hierro, vitamina D o zinc según lo que indiquen los análisis. Siempre bajo supervisión médica.</span></div></li>
-        <li><span class="check">✓</span><div class="item-text">Considerar apoyo emocional para los padres<span class="item-sub">El agotamiento y la falta de estructura pueden estar conectados. Buscar orientación profesional.</span></div></li>
+        <li><span class="check">✓</span><div class="item-text">📋 Segunda consulta con pediatra/nutriólogo<span class="item-sub">Revisar el progreso con percentiles y laboratorios de seguimiento. Ajustar el plan según los resultados.</span></div></li>
+        <li><span class="check">✓</span><div class="item-text">💊 Evaluar la suplementación si hay deficiencias<span class="item-sub">Hierro, vitamina D o zinc según lo que indiquen los análisis. Siempre bajo supervisión médica.</span></div></li>
+        <li><span class="check">✓</span><div class="item-text">🤝 Considerar apoyo emocional para los padres<span class="item-sub">El agotamiento y la falta de estructura pueden estar conectados. Buscar orientación profesional.</span></div></li>
       </ul>
     </div>
 
