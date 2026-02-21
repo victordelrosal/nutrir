@@ -147,13 +147,14 @@
     .card-source a:hover { text-decoration: underline; }
 
     /* COLLAPSIBLE CARDS */
-    .card-head { cursor: pointer; position: relative; padding-right: 2rem; }
+    .card-head { cursor: pointer; position: relative; }
+    .card-head { padding-bottom: 0.5rem; }
     .card-toggle {
-      position: absolute; right: 0; top: 0.2rem;
-      width: 32px; height: 32px;
-      border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
-      font-size: 1.5rem; font-weight: 300; line-height: 1;
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      font-size: 2rem; font-weight: 300; line-height: 1;
+      margin: 0.5rem auto 0;
       transition: transform 0.35s ease, background 0.3s ease;
     }
     .card.open .card-toggle { transform: rotate(45deg); }
