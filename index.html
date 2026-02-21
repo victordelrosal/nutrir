@@ -397,6 +397,42 @@
     .protein-ref-item .pgrams { font-size: 13px; font-weight: 700; color: var(--ios-orange); width: 34px; text-align: right; flex-shrink: 0; }
     .protein-ref-note { font-size: 11px; color: var(--ios-text3); margin-top: 10px; padding-top: 8px; border-top: 0.5px solid var(--ios-separator); line-height: 1.4; }
 
+    /* ===== MACRONUTRIENT COMPARISON ===== */
+    .macro-compare { padding: 0; }
+    .macro-row {
+      padding: 14px 16px;
+      border-bottom: 0.5px solid var(--ios-separator);
+    }
+    .macro-row:last-child { border-bottom: none; }
+    .macro-row-head { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+    .macro-icon {
+      width: 36px; height: 36px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; flex-shrink: 0;
+    }
+    .macro-name { font-size: 15px; font-weight: 700; }
+    .macro-role { font-size: 13px; font-weight: 500; margin-top: 1px; }
+    .macro-tag {
+      font-size: 10px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.04em; padding: 2px 8px; border-radius: 4px;
+      margin-left: auto; flex-shrink: 0;
+    }
+    .macro-points { list-style: none; padding: 0; margin: 0; }
+    .macro-points li {
+      font-size: 14px; line-height: 1.45; color: var(--ios-text2);
+      padding: 3px 0 3px 46px;
+    }
+    .macro-points strong { color: var(--ios-text); }
+    .macro-star .macro-icon { background: rgba(255,149,0,0.12); }
+    .macro-star .macro-name { color: var(--ios-orange); }
+    .macro-star .macro-tag { background: rgba(255,149,0,0.12); color: var(--ios-orange); }
+    .macro-carb .macro-icon { background: rgba(255,204,0,0.12); }
+    .macro-carb .macro-name { color: #e6a800; }
+    .macro-carb .macro-tag { background: rgba(255,204,0,0.12); color: #cc9600; }
+    .macro-fat .macro-icon { background: rgba(0,122,255,0.1); }
+    .macro-fat .macro-name { color: var(--ios-blue); }
+    .macro-fat .macro-tag { background: var(--ios-blue-bg); color: var(--ios-blue); }
+
     .ios-card-info { flex: 1; min-width: 0; }
     .ios-card-label {
       font-size: 17px; font-weight: 600; line-height: 1.3;
@@ -1026,6 +1062,86 @@
       <div class="ios-section-sub">Qué comer, cuánto y por qué, en cada etapa de la vida.</div>
     </div>
 
+    <!-- WHY PROTEIN MATTERS -->
+    <div class="ios-protein-wrap reveal">
+      <div class="ios-protein-head" data-target="macro-compare">
+        <div class="ios-protein-head-info">
+          <div class="ios-protein-head-title">⚡ ¿Por qué la proteína es tan importante?</div>
+          <div class="ios-protein-head-sub">Comparativo de familias nutricionales</div>
+        </div>
+        <span class="ios-chevron-sm"></span>
+      </div>
+      <div class="ios-protein-body"><div class="ios-protein-body-inner">
+        <div class="macro-compare">
+
+          <!-- PROTEIN -->
+          <div class="macro-row macro-star">
+            <div class="macro-row-head">
+              <div class="macro-icon">🥩</div>
+              <div>
+                <div class="macro-name">Proteínas</div>
+                <div class="macro-role" style="color:var(--ios-text2)">Construyen y reparan</div>
+              </div>
+              <span class="macro-tag">★ Esencial</span>
+            </div>
+            <ul class="macro-points">
+              <li>🔨 <strong>Construye todo:</strong> músculo, huesos, órganos, piel, pelo, uñas, anticuerpos y enzimas</li>
+              <li>🔥 <strong>La que más sacia:</strong> 20–30 % de sus calorías se quema solo en digerirla (vs. 5–10 % de carbohidratos)</li>
+              <li>⚠️ <strong>No se almacena:</strong> a diferencia de grasa y carbohidratos, el cuerpo no guarda reservas. Necesitas comerla todos los días</li>
+              <li>🧠 <strong>Produce neurotransmisores:</strong> serotonina (ánimo), dopamina (motivación), GABA (calma)</li>
+              <li>💡 Ejemplos: pollo, huevo, pescado, leche, yogurt, frijoles, lentejas, tofu</li>
+              <li>📐 4 calorías por gramo</li>
+            </ul>
+          </div>
+
+          <!-- CARBS -->
+          <div class="macro-row macro-carb">
+            <div class="macro-row-head">
+              <div class="macro-icon">🍞</div>
+              <div>
+                <div class="macro-name">Carbohidratos</div>
+                <div class="macro-role" style="color:var(--ios-text2)">Dan energía rápida</div>
+              </div>
+              <span class="macro-tag">Combustible</span>
+            </div>
+            <ul class="macro-points">
+              <li>⚡ <strong>Energía inmediata:</strong> el cerebro consume ~120 g/día. Son necesarios, no son el enemigo</li>
+              <li>⚠️ <strong>Refinados (pan blanco, galletas, refrescos):</strong> picos de azúcar → hambre rápida → ciclo de antojos</li>
+              <li>✅ <strong>Buenos:</strong> avena, tortilla de maíz, arroz integral, fruta entera, camote, papa</li>
+              <li>❌ <strong>Problema:</strong> en exceso se convierten en grasa. Y no construyen ni reparan nada</li>
+              <li>🇲🇽 Dieta mexicana típica: 60–70 % carbohidratos. Demasiado si no hay proteína suficiente</li>
+              <li>📐 4 calorías por gramo</li>
+            </ul>
+          </div>
+
+          <!-- FATS -->
+          <div class="macro-row macro-fat">
+            <div class="macro-row-head">
+              <div class="macro-icon">🥑</div>
+              <div>
+                <div class="macro-name">Grasas</div>
+                <div class="macro-role" style="color:var(--ios-text2)">Protegen y regulan</div>
+              </div>
+              <span class="macro-tag">Reserva</span>
+            </div>
+            <ul class="macro-points">
+              <li>🧠 <strong>Esenciales para el cerebro:</strong> el 60 % del cerebro es grasa. Los niños las necesitan para el desarrollo neuronal</li>
+              <li>💊 <strong>Absorben vitaminas:</strong> sin grasa, el cuerpo no absorbe vitaminas A, D, E y K</li>
+              <li>✅ <strong>Buenas:</strong> aguacate, nueces, aceite de oliva, pescado (omega-3), semillas</li>
+              <li>❌ <strong>Malas:</strong> frituras, manteca, aceites industriales, grasas trans</li>
+              <li>⚠️ <strong>Las más densas:</strong> 9 cal/g (más del doble que proteína o carbohidratos). Porciones moderadas</li>
+              <li>📐 9 calorías por gramo</li>
+            </ul>
+          </div>
+
+        </div>
+
+        <div class="ios-protein-intro" style="border-top:0.5px solid var(--ios-separator);border-bottom:none;">
+          <strong>Conclusión:</strong> los tres macronutrientes son necesarios. Pero la proteína es la única que construye y repara el cuerpo, no se almacena, y la mayoría de las familias mexicanas no comen suficiente. Por eso merece atención especial.
+        </div>
+      </div></div>
+    </div>
+
     <div class="ios-protein-wrap reveal">
       <div class="ios-protein-head">
         <div class="ios-protein-head-info">
@@ -1324,9 +1440,11 @@
       document.querySelector('.ios-sources').classList.toggle('open');
     });
 
-    // Collapsible protein section
-    document.querySelector('.ios-protein-head').addEventListener('click', () => {
-      document.querySelector('.ios-protein-wrap').classList.toggle('open');
+    // Collapsible protein sections (multiple wraps)
+    document.querySelectorAll('.ios-protein-head').forEach(head => {
+      head.addEventListener('click', () => {
+        head.closest('.ios-protein-wrap').classList.toggle('open');
+      });
     });
 
     // Scroll reveal
