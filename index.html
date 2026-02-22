@@ -654,6 +654,43 @@
       font-size: 12px; color: var(--ios-text3); line-height: 1.6;
     }
 
+    /* ===== FONT SIZE CONTROL ===== */
+    .fs-control {
+      position: fixed; top: 12px; right: 12px; z-index: 200;
+      display: flex; align-items: center; gap: 2px;
+      background: rgba(242,242,247,0.85);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-radius: 22px; padding: 4px;
+      box-shadow: 0 1px 8px rgba(0,0,0,0.12), 0 0 0 0.5px rgba(0,0,0,0.06);
+      opacity: 0; transform: translateY(-8px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    .fs-control.visible { opacity: 1; transform: translateY(0); }
+    .fs-btn {
+      width: 34px; height: 34px; border-radius: 50%; border: none;
+      background: transparent; color: var(--ios-text);
+      font-weight: 700; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.15s ease, opacity 0.15s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .fs-btn:active { background: rgba(0,0,0,0.08); }
+    .fs-btn:disabled { opacity: 0.2; cursor: default; }
+    .fs-btn:disabled:active { background: transparent; }
+    .fs-btn-down { font-size: 12px; }
+    .fs-btn-up { font-size: 16px; }
+    .fs-indicator {
+      font-size: 10px; font-weight: 600; color: var(--ios-text2);
+      width: 20px; text-align: center; flex-shrink: 0;
+    }
+
+    /* Font size levels applied to body */
+    body.fs-0 { font-size: 15px; }
+    body.fs-1 { font-size: 17px; }
+    body.fs-2 { font-size: 19px; }
+    body.fs-3 { font-size: 21px; }
+
     /* ===== ANIMATIONS ===== */
     .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.5s ease, transform 0.5s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
@@ -678,6 +715,13 @@
   </style>
 </head>
 <body>
+
+  <!-- FONT SIZE CONTROL -->
+  <div class="fs-control" id="fsControl">
+    <button class="fs-btn fs-btn-down" id="fsDown" aria-label="Reducir texto">A</button>
+    <span class="fs-indicator" id="fsLevel"></span>
+    <button class="fs-btn fs-btn-up" id="fsUp" aria-label="Aumentar texto">A</button>
+  </div>
 
   <!-- iOS TAB BAR -->
   <nav class="ios-tabs" id="tabs">
@@ -1457,6 +1501,31 @@
     const tabs = document.getElementById('tabs');
     new IntersectionObserver(e => {
       e.forEach(x => tabs.classList.toggle('visible', !x.isIntersecting));
+    }, { threshold: 0.1 }).observe(document.getElementById('inicio'));
+
+    // Font size control
+    const fsLevels = ['fs-0','fs-1','fs-2','fs-3'];
+    const fsLabels = ['S','M','L','XL'];
+    let fsIdx = parseInt(localStorage.getItem('nutrir-fs') || '1');
+    const fsControl = document.getElementById('fsControl');
+    const fsLevel = document.getElementById('fsLevel');
+    const fsDown = document.getElementById('fsDown');
+    const fsUp = document.getElementById('fsUp');
+    function applyFs() {
+      fsLevels.forEach(c => document.body.classList.remove(c));
+      document.body.classList.add(fsLevels[fsIdx]);
+      fsLevel.textContent = fsLabels[fsIdx];
+      fsDown.disabled = fsIdx === 0;
+      fsUp.disabled = fsIdx === fsLevels.length - 1;
+      localStorage.setItem('nutrir-fs', fsIdx);
+    }
+    fsDown.addEventListener('click', () => { if (fsIdx > 0) { fsIdx--; applyFs(); } });
+    fsUp.addEventListener('click', () => { if (fsIdx < fsLevels.length - 1) { fsIdx++; applyFs(); } });
+    applyFs();
+
+    // Show fs control after scrolling past hero
+    new IntersectionObserver(e => {
+      e.forEach(x => fsControl.classList.toggle('visible', !x.isIntersecting));
     }, { threshold: 0.1 }).observe(document.getElementById('inicio'));
 
     // Active tab
